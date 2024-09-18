@@ -10,16 +10,21 @@ import FilterSpeed from './tariffs/filters/filter-speed.js';
 import CardIcon from './tariffs/card-icon.js';
 import OrderForm from './order-form/order-form.js';
 import PopupWithForm from './popup/popup-with-form.js';
+import PhoneInput from './inputs/phone-input.js';
 
 const resizeHandlers = [];
 const eventListeners = [];
 
 document.querySelectorAll(selectors.textInput).forEach((input) => {
-  // eventListeners.push(new TextInput(input));
+  eventListeners.push(new TextInput(input));
+});
+
+document.querySelectorAll(selectors.phoneInput).forEach((input) => {
+  eventListeners.push(new PhoneInput(input));
 });
 
 document.querySelectorAll(selectors.orderForm).forEach((formElem) => {
-  const form = new OrderForm(formElem, TextInput);
+  const form = new OrderForm(formElem);
   eventListeners.push(form);
 
   if (formElem.closest(selectors.popup)) {

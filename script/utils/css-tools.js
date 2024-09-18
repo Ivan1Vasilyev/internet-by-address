@@ -41,7 +41,7 @@ export const selectors = {
   tariffCardsContainer: '.tariffs',
   tariffsContainer: '.tariffs-container',
   text: '.text',
-  textInput: 'label.text-input',
+  textInput: 'label.text-input:not([data-type="phone"])',
   thanksButton: '[data-state="success"] .button',
 };
 
