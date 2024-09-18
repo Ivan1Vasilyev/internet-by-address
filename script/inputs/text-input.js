@@ -1,4 +1,4 @@
-import { classes, selectors } from '../utils/css-tools.js';
+import { classes, selectors } from "../utils/css-tools.js";
 
 export default class TextInput {
   constructor(container, validator) {
@@ -10,10 +10,10 @@ export default class TextInput {
   }
 
   setEventListeners = () => {
-    this._input.addEventListener('focus', this._focusHandler);
-    this._input.addEventListener('blur', this._blurHandler);
-    this._input.addEventListener('input', this._inputHandler);
-    this._reset.addEventListener('click', this._resetHandler);
+    this._input.addEventListener("focus", this._focusHandler);
+    this._input.addEventListener("blur", this._blurHandler);
+    this._input.addEventListener("input", this._inputHandler);
+    this._reset.addEventListener("click", this._resetHandler);
   };
 
   _focusHandler = () => this._classList.add(classes.focus);
@@ -27,7 +27,7 @@ export default class TextInput {
   _resetHandler = (e) => {
     e.stopPropagation();
 
-    this._input.value = '';
+    this._input.value = "";
     this._classList.remove(classes.filling);
   };
 
@@ -40,7 +40,7 @@ export default class TextInput {
 
     if (this._input.value) {
       const result = this._validator(this._input.value);
-      this._input.value = result.value;
+      this._input.value = result;
     }
   };
 }
