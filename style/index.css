@@ -1537,7 +1537,66 @@ input[type='range']::-ms-thumb {
   cursor: pointer;
 }
 
-.popup.order-form .popup-container {
+.grabber-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.grabber {
+  width: 36px;
+  height: 5px;
+  flex-shrink: 0;
+  border-radius: 2.5px;
+  background: var(--Gray-400);
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    align-items: flex-end;
+  }
+
+  .popup.overlay .popup-container {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    padding: 0 20px;
+    top: 100%;
+    animation: mobPopupDown 0.5s ease-out;
+  }
+
+  .popup.overlay.opened .popup-container {
+    top: 0;
+    animation: mobPopupUp 0.5s ease-out;
+  }
+
+  @keyframes mobPopupUp {
+    from {
+      top: 100%;
+    }
+
+    to {
+      top: 0;
+    }
+  }
+
+  @keyframes mobPopupDown {
+    from {
+      top: 250px;
+    }
+
+    to {
+      top: 100%;
+    }
+  }
+}
+
+/*  ===========================================================     popup order-form    ===========================================================  */
+
+.order-form .popup-container {
   width: 500px;
   height: 477px;
   text-align: center;
@@ -1592,6 +1651,17 @@ input[type='range']::-ms-thumb {
 .popup.order-form .result .text {
   font-size: 18px;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .popup.order-form .popup-container {
+    height: 441px;
+  }
+
+  .popup .default {
+    padding: 40px 0 30px;
+    gap: 15px;
+  }
 }
 
 /*  ===========================================================     hide show    ===========================================================  */

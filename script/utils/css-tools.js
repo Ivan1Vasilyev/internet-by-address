@@ -24,6 +24,7 @@ export const selectors = {
   phoneInput: 'label.text-input[data-type="phone"]',
   popup: '.popup',
   popupCloseButton: '.close-icon',
+  popupContainer: '.popup-container',
   popupOrderForm: '.popup.order-form',
   price: '.current-price .digits',
   promoInfo: '.action-mark.action-length',

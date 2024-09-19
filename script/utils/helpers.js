@@ -15,6 +15,10 @@ export function getWordEnding(number, one, two, many) {
   return number == 1 ? one : number > 1 && number < 5 ? two : many;
 }
 
+export function isMobile() {
+  return window.innerWidth < 768;
+}
+
 export function debounce(callback, duration) {
   let isCooldown = false;
 

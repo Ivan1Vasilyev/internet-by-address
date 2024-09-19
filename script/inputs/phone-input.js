@@ -16,12 +16,11 @@ export default class PhoneInput extends TextInput {
   _phoneValidator = (e) => {
     const input = e.target;
     const { inputType } = e;
-    const caretPosition = input.selectionEnd;
-    const diffPosition = input.value.length - caretPosition;
 
     if (input.value.length >= 18 && this._previousValue.length == 18 && inputType == 'insertText') {
       input.value = this._previousValue;
     } else {
+      const caretPosition = input.selectionEnd;
       if (inputType.startsWith('deleteContent') && this._noDeletionPositions.includes(caretPosition)) {
         input.value = this._previousValue;
         const newPosition = caretPosition + (inputType.endsWith('Forward') ? 1 : 0);
@@ -41,6 +40,7 @@ export default class PhoneInput extends TextInput {
           result += template.slice(result.length, index) + digits[i];
         }
 
+        const diffPosition = input.value.length - caretPosition;
         const newPosition = result == this._previousValue ? caretPosition - 1 : caretPosition;
         this._previousValue = input.value = result;
 

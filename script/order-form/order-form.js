@@ -2,8 +2,6 @@ import { hideElem, showElem } from '../utils/helpers.js';
 import { selectors } from '../utils/css-tools.js';
 
 export default class OrderForm {
-  _phoneRegex = /\d\D?\d\D?\d\D?\d\D?\d\D?/;
-
   constructor(formElem) {
     this._form = formElem.querySelector('form');
     this._defaultElem = formElem.querySelector(selectors.formStateDefault);
@@ -22,11 +20,20 @@ export default class OrderForm {
     showElem(this._defaultElem);
   };
 
+  _getData = () => {
+    return this._inputs.reduce((p, i) => {
+      p[i.name] = i.value;
+      return p;
+    }, {});
+  };
+
   _submitHandler = (e) => {
     e.preventDefault();
     hideElem(this._defaultElem);
 
     // showElem(this._successElem);
     showElem(this._errorElem);
+
+    console.log(this._getData());
   };
 }
