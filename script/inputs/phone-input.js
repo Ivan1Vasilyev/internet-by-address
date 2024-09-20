@@ -4,8 +4,8 @@ export default class PhoneInput extends TextInput {
   _noDeletionPositions = [0, 1, 2, 3, 7, 8, 12, 15];
   _previousValue = '';
 
-  constructor(container) {
-    super(container);
+  constructor(container, resetHandler) {
+    super(container, resetHandler);
   }
 
   _inputHandler = (e) => {
@@ -21,7 +21,7 @@ export default class PhoneInput extends TextInput {
       input.value = this._previousValue;
     } else {
       const caretPosition = input.selectionEnd;
-      if (inputType.startsWith('deleteContent') && this._noDeletionPositions.includes(caretPosition)) {
+      if (inputType?.startsWith('deleteContent') && this._noDeletionPositions.includes(caretPosition)) {
         input.value = this._previousValue;
         const newPosition = caretPosition + (inputType.endsWith('Forward') ? 1 : 0);
 

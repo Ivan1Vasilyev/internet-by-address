@@ -11,24 +11,32 @@ import CardIcon from './tariffs/card-icon.js';
 import OrderForm from './order-form/order-form.js';
 import PopupWithForm from './popup/popup-with-form.js';
 import PhoneInput from './inputs/phone-input.js';
+import PopupWithCities from './popup/popup-with-cities.js';
 
 const resizeHandlers = [];
 const eventListeners = [];
 
 document.querySelectorAll(selectors.textInput).forEach((input) => {
-  eventListeners.push(new TextInput(input));
+  // eventListeners.push(new TextInput(input));
 });
 
 document.querySelectorAll(selectors.phoneInput).forEach((input) => {
-  eventListeners.push(new PhoneInput(input));
+  // eventListeners.push(new PhoneInput(input));
 });
+
+const popupWithCities = new PopupWithCities(document.querySelector(selectors.popupCities));
+
+eventListeners.push(popupWithCities);
+
+window.openCitiesPopup = popupWithCities.open;
 
 document.querySelectorAll(selectors.orderForm).forEach((formElem) => {
   const form = new OrderForm(formElem);
   eventListeners.push(form);
 
-  if (formElem.closest(selectors.popup)) {
-    const popupWithForm = new PopupWithForm(document.querySelector(selectors.popupOrderForm), form.resetForm);
+  const popup = formElem.closest(selectors.popup);
+  if (popup) {
+    const popupWithForm = new PopupWithForm(popup, form.resetForm);
     eventListeners.push(popupWithForm);
 
     window.openOrderPopup = popupWithForm.open;

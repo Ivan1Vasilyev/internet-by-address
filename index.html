@@ -38,7 +38,7 @@
               fill="#0758F5" />
           </svg>
         </a>
-        <span class="header-city txt-med">Нижний Новгород</span>
+        <span onclick="openCitiesPopup();" class="header-city txt-med">Нижний Новгород</span>
         <div class="header-buttons">
           <a class="show-mob" href="tel:#">
             <svg width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1460,7 +1460,7 @@
           </label>
         </div>
       </div>
-      <div class="search-result">
+      <div class="search-result scroll-block">
         <div class="char-section" data-char="а">
           <span class="char">а</span>
           <div class="char-result">
@@ -1800,6 +1800,533 @@
         <a href="tel:#" class="button black wide show-laptop">Позвонить</a>
       </div>
     </div>
+  </div>
+  <div class="popup overlay cities">
+    <div class="popup-container br-10">
+      <div class="grabber-container show-laptop">
+        <div class="grabber"></div>
+      </div>
+
+      <div class="close-icon hide-laptop">
+        <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m17.88 16 5.733-5.72a1.339 1.339 0 1 0-1.893-1.893L16 14.12l-5.72-5.733a1.339 1.339 0 1 0-1.893 1.893L14.12 16l-5.733 5.72a1.332 1.332 0 0 0 0 1.893 1.333 1.333 0 0 0 1.893 0L16 17.88l5.72 5.733a1.333 1.333 0 0 0 1.893 0 1.333 1.333 0 0 0 0-1.893L17.88 16z"
+            fill="#9C9C9C" />
+        </svg>
+      </div>
+
+      <span class="title">Выбор города</span>
+      <label class="text-input bg-gray-100" data-type="text">
+        <input type="text" name="cities" />
+        <span class="label-text">Поиск города</span>
+        <span class="error"></span>
+        <span class="reset">
+          <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m13.41 12 4.3-4.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1.004 1.004 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l4.29-4.3 4.29 4.3a.998.998 0 0 0 1.42 0 .997.997 0 0 0 .219-1.095.998.998 0 0 0-.22-.325L13.41 12z"
+              fill="#717171" />
+          </svg>
+        </span>
+      </label>
+
+      <div class="cities-container scroll-block">
+        <div class="city-hold">
+          <ul>
+            <li><a href="https://internet-by-address.ru/">Москва</a></li>
+            <li><a href="https://internet-by-address.ru/sankt-peterburg">Санкт-Петербург</a></li>
+            <li><a href="https://internet-by-address.ru/novosibirsk">Новосибирск</a></li>
+            <li><a href="https://internet-by-address.ru/yaroslavl">Ярославль</a></li>
+            <li><a href="https://internet-by-address.ru/tula">Тула</a></li>
+            <li><a href="https://internet-by-address.ru/ekaterinburg">Екатеринбург</a></li>
+            <li><a href="https://internet-by-address.ru/chelyabinsk">Челябинск</a></li>
+            <li><a href="https://internet-by-address.ru/nizhnij-novgorod">Нижний Новгород</a></li>
+            <li><a href="https://internet-by-address.ru/krasnodar">Краснодар</a></li>
+            <li><a href="https://internet-by-address.ru/vladivostok">Владивосток</a></li>
+            <li><a href="https://internet-by-address.ru/zheleznogorsk">Железногорск</a></li>
+            <li><a href="https://internet-by-address.ru/kazan">Казань</a></li>
+            <li><a href="https://internet-by-address.ru/sochi">Сочи</a></li>
+          </ul>
+        </div>
+
+        <div class="city-list">
+          <div class="city-list-el">
+            <div class="city-list-letter">А</div>
+            <div class="letter-list">
+              <div data-find="азнакаево" data-region="Республика Татарстан" class="city-list-link"><a href="https://internet-by-address.ru/aznakaevo">Азнакаево</a></div>
+              <div data-find="азов" class="city-list-link"><a href="https://internet-by-address.ru/azov">Азов</a></div>
+              <div data-find="аксай" class="city-list-link"><a href="https://internet-by-address.ru/aksaj">Аксай</a></div>
+              <div data-find="альметьевск" class="city-list-link"><a href="https://internet-by-address.ru/almetevsk">Альметьевск</a></div>
+              <div data-find="амурск" class="city-list-link"><a href="https://internet-by-address.ru/amursk">Амурск</a></div>
+              <div data-find="анапа" class="city-list-link"><a href="https://internet-by-address.ru/anapa">Анапа</a></div>
+              <div data-find="анджиевский" class="city-list-link"><a href="https://internet-by-address.ru/andzhievskij">Анджиевский</a></div>
+              <div data-find="андреевка" class="city-list-link"><a href="https://internet-by-address.ru/andreevka">Андреевка</a></div>
+              <div data-find="анкудиновка" class="city-list-link"><a href="https://internet-by-address.ru/ankudinovka">Анкудиновка</a></div>
+              <div data-find="апрелевка" class="city-list-link"><a href="https://internet-by-address.ru/aprelevka">Апрелевка</a></div>
+              <div data-find="арзамас" class="city-list-link"><a href="https://internet-by-address.ru/arzamas">Арзамас</a></div>
+              <div data-find="астрахань" class="city-list-link"><a href="https://internet-by-address.ru/astraxan">Астрахань</a></div>
+              <div data-find="афонино" class="city-list-link"><a href="https://internet-by-address.ru/afonino">Афонино</a></div>
+              <div data-find="ахтубинск" class="city-list-link"><a href="https://internet-by-address.ru/axtubinsk">Ахтубинск</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Б</div>
+            <div class="letter-list">
+              <div data-find="балаково" class="city-list-link"><a href="https://internet-by-address.ru/balakovo">Балаково</a></div>
+              <div data-find="балашиха" class="city-list-link"><a href="https://internet-by-address.ru/balashixa">Балашиха</a></div>
+              <div data-find="барнаул" class="city-list-link"><a href="https://internet-by-address.ru/barnaul">Барнаул</a></div>
+              <div data-find="батайск" class="city-list-link"><a href="https://internet-by-address.ru/batajsk">Батайск</a></div>
+              <div data-find="батино" class="city-list-link"><a href="https://internet-by-address.ru/batino">Батино</a></div>
+              <div data-find="белая калитва" class="city-list-link"><a href="https://internet-by-address.ru/belaya-kalitva">Белая Калитва</a></div>
+              <div data-find="белгород" class="city-list-link"><a href="https://internet-by-address.ru/belgorod">Белгород</a></div>
+              <div data-find="белогорск" class="city-list-link"><a href="https://internet-by-address.ru/belogorsk">Белогорск</a></div>
+              <div data-find="белорецк" class="city-list-link"><a href="https://internet-by-address.ru/beloreczk">Белорецк</a></div>
+              <div data-find="белореченск" class="city-list-link"><a href="https://internet-by-address.ru/belorechensk">Белореченск</a></div>
+              <div data-find="белоярский" class="city-list-link"><a href="https://internet-by-address.ru/beloyarskij">Белоярский</a></div>
+              <div data-find="белый яр" class="city-list-link"><a href="https://internet-by-address.ru/belyj-yar">Белый Яр</a></div>
+              <div data-find="бердск" class="city-list-link"><a href="https://internet-by-address.ru/berdsk">Бердск</a></div>
+              <div data-find="березовка" class="city-list-link"><a href="https://internet-by-address.ru/berezovka">Березовка</a></div>
+              <div data-find="берёзовка" class="city-list-link"><a href="https://internet-by-address.ru/beryozovka">Берёзовка</a></div>
+              <div data-find="бийск" class="city-list-link"><a href="https://internet-by-address.ru/bijsk">Бийск</a></div>
+              <div data-find="благовещенск" class="city-list-link"><a href="https://internet-by-address.ru/blagoveshhensk">Благовещенск</a></div>
+              <div data-find="бор" class="city-list-link"><a href="https://internet-by-address.ru/bor">Бор</a></div>
+              <div data-find="борисоглебск" class="city-list-link"><a href="https://internet-by-address.ru/borisoglebsk">Борисоглебск</a></div>
+              <div data-find="бронницы" class="city-list-link"><a href="https://internet-by-address.ru/bronnicy">Бронницы</a></div>
+              <div data-find="бугульма" class="city-list-link"><a href="https://internet-by-address.ru/bugulma">Бугульма</a></div>
+              <div data-find="бугуруслан" class="city-list-link"><a href="https://internet-by-address.ru/buguruslan">Бугуруслан</a></div>
+              <div data-find="бузулук" class="city-list-link"><a href="https://internet-by-address.ru/buzuluk">Бузулук</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">В</div>
+            <div class="letter-list">
+              <div data-find="ватутинки" class="city-list-link"><a href="https://internet-by-address.ru/vatutinki">Ватутинки</a></div>
+              <div data-find="великий новгород" class="city-list-link"><a href="https://internet-by-address.ru/velikij-novgorod">Великий Новгород</a></div>
+              <div data-find="верхнетемерницкий" class="city-list-link"><a href="https://internet-by-address.ru/verxnetemerniczkij">Верхнетемерницкий</a></div>
+              <div data-find="видное" class="city-list-link"><a href="https://internet-by-address.ru/vidnoe">Видное</a></div>
+              <div data-find="владивосток" class="city-list-link"><a href="https://internet-by-address.ru/vladivostok">Владивосток</a></div>
+              <div data-find="владимир" class="city-list-link"><a href="https://internet-by-address.ru/vladimir">Владимир</a></div>
+              <div data-find="волгоград" class="city-list-link"><a href="https://internet-by-address.ru/volgograd">Волгоград</a></div>
+              <div data-find="волжск" class="city-list-link"><a href="https://internet-by-address.ru/volzhsk">Волжск</a></div>
+              <div data-find="вологда" class="city-list-link"><a href="https://internet-by-address.ru/vologda">Вологда</a></div>
+              <div data-find="волховец" class="city-list-link"><a href="https://internet-by-address.ru/volxovecz">Волховец</a></div>
+              <div data-find="воронеж" class="city-list-link"><a href="https://internet-by-address.ru/voronezh">Воронеж</a></div>
+              <div data-find="ворошнево" class="city-list-link"><a href="https://internet-by-address.ru/voroshnevo">Ворошнево</a></div>
+              <div data-find="воскресенское" class="city-list-link"><a href="https://internet-by-address.ru/voskresenskoe">Воскресенское</a></div>
+              <div data-find="воткинск" class="city-list-link"><a href="https://internet-by-address.ru/votkinsk">Воткинск</a></div>
+              <div data-find="всеволожск" class="city-list-link"><a href="https://internet-by-address.ru/vsevolozhsk">Всеволожск</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Г</div>
+            <div class="letter-list">
+              <div data-find="газопровод" class="city-list-link"><a href="https://internet-by-address.ru/gazoprovod">Газопровод</a></div>
+              <div data-find="гай" class="city-list-link"><a href="https://internet-by-address.ru/gaj">Гай</a></div>
+              <div data-find="геленджик" class="city-list-link"><a href="https://internet-by-address.ru/gelendzhik">Геленджик</a></div>
+              <div data-find="глазов" class="city-list-link"><a href="https://internet-by-address.ru/glazov">Глазов</a></div>
+              <div data-find="голицыно" class="city-list-link"><a href="https://internet-by-address.ru/golicyno">Голицыно</a></div>
+              <div data-find="горки-10" class="city-list-link"><a href="https://internet-by-address.ru/gorki-10">Горки-10</a></div>
+              <div data-find="горки-2" class="city-list-link"><a href="https://internet-by-address.ru/gorki-2">Горки-2</a></div>
+              <div data-find="горный" class="city-list-link"><a href="https://internet-by-address.ru/gornyj">Горный</a></div>
+              <div data-find="горняцкий" class="city-list-link"><a href="https://internet-by-address.ru/gornyaczkij">Горняцкий</a></div>
+              <div data-find="григорово" class="city-list-link"><a href="https://internet-by-address.ru/grigorovo">Григорово</a></div>
+              <div data-find="грязи" class="city-list-link"><a href="https://internet-by-address.ru/gryazi">Грязи</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Д</div>
+            <div class="letter-list">
+              <div data-find="дегтярск" class="city-list-link"><a href="https://internet-by-address.ru/degtyarsk">Дегтярск</a></div>
+              <div data-find="дерябиха" class="city-list-link"><a href="https://internet-by-address.ru/deryabixa">Дерябиха</a></div>
+              <div data-find="джалиль" class="city-list-link"><a href="https://internet-by-address.ru/dzhalil">Джалиль</a></div>
+              <div data-find="дзержинск" class="city-list-link"><a href="https://internet-by-address.ru/dzerzhinsk">Дзержинск</a></div>
+              <div data-find="дзержинский" class="city-list-link"><a href="https://internet-by-address.ru/dzerzhinskij">Дзержинский</a></div>
+              <div data-find="дмитров" class="city-list-link"><a href="https://internet-by-address.ru/dmitrov">Дмитров</a></div>
+              <div data-find="добрянка" class="city-list-link"><a href="https://internet-by-address.ru/dobryanka">Добрянка</a></div>
+              <div data-find="долгопрудный" class="city-list-link"><a href="https://internet-by-address.ru/dolgoprudnyj">Долгопрудный</a></div>
+              <div data-find="домодедово" class="city-list-link"><a href="https://internet-by-address.ru/domodedovo">Домодедово</a></div>
+              <div data-find="донецк" class="city-list-link"><a href="https://internet-by-address.ru/doneczk">Донецк</a></div>
+              <div data-find="дубовое" class="city-list-link"><a href="https://internet-by-address.ru/dubovoe">Дубовое</a></div>
+              <div data-find="дудинка" class="city-list-link"><a href="https://internet-by-address.ru/dudinka">Дудинка</a></div>
+              <div data-find="дядьково" class="city-list-link"><a href="https://internet-by-address.ru/dyadkovo">Дядьково</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Е</div>
+            <div class="letter-list">
+              <div data-find="екатеринбург" class="city-list-link"><a href="https://internet-by-address.ru/ekaterinburg">Екатеринбург</a></div>
+              <div data-find="елабуга" class="city-list-link"><a href="https://internet-by-address.ru/elabuga">Елабуга</a></div>
+              <div data-find="елец" class="city-list-link"><a href="https://internet-by-address.ru/elecz">Елец</a></div>
+              <div data-find="ессентуки" class="city-list-link"><a href="https://internet-by-address.ru/essentuki">Ессентуки</a></div>
+              <div data-find="ессентукская" class="city-list-link"><a href="https://internet-by-address.ru/essentukskaya">Ессентукская</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Ж</div>
+            <div class="letter-list">
+              <div data-find="железноводск" class="city-list-link"><a href="https://internet-by-address.ru/zheleznovodsk">Железноводск</a></div>
+              <div data-find="железногорск" class="city-list-link"><a href="https://internet-by-address.ru/zheleznogorsk">Железногорск</a></div>
+              <div data-find="железнодорожный" class="city-list-link"><a href="https://internet-by-address.ru/zheleznodorozhnyj">Железнодорожный</a></div>
+              <div data-find="жилина" class="city-list-link"><a href="https://internet-by-address.ru/zhilina">Жилина</a></div>
+              <div data-find="жуковка-3" class="city-list-link"><a href="https://internet-by-address.ru/zhukovka-3">Жуковка-3</a></div>
+              <div data-find="жуковский" class="city-list-link"><a href="https://internet-by-address.ru/zhukovskij">Жуковский</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">З</div>
+            <div class="letter-list">
+              <div data-find="завода мосрентген" class="city-list-link"><a href="https://internet-by-address.ru/zavoda-mosrentgen">Завода Мосрентген</a></div>
+              <div data-find="заводской" class="city-list-link"><a href="https://internet-by-address.ru/zavodskoj">Заводской</a></div>
+              <div data-find="завьялово" class="city-list-link"><a href="https://internet-by-address.ru/zavyalovo">Завьялово</a></div>
+              <div data-find="заинск" class="city-list-link"><a href="https://internet-by-address.ru/zainsk">Заинск</a></div>
+              <div data-find="западные шунды" class="city-list-link"><a href="https://internet-by-address.ru/zapadnye-shundy">Западные Шунды</a></div>
+              <div data-find="западный" class="city-list-link"><a href="https://internet-by-address.ru/zapadnyj">Западный</a></div>
+              <div data-find="зареченский" class="city-list-link"><a href="https://internet-by-address.ru/zarechenskij">Зареченский</a></div>
+              <div data-find="заречный" class="city-list-link"><a href="https://internet-by-address.ru/zarechnyj">Заречный</a></div>
+              <div data-find="засечное" class="city-list-link"><a href="https://internet-by-address.ru/zasechnoe">Засечное</a></div>
+              <div data-find="зато сибирский" class="city-list-link"><a href="https://internet-by-address.ru/zato-sibirskij">ЗАТО Сибирский</a></div>
+              <div data-find="звенигород" class="city-list-link"><a href="https://internet-by-address.ru/zvenigorod">Звенигород</a></div>
+              <div data-find="зеленодольск" class="city-list-link"><a href="https://internet-by-address.ru/zelenodolsk">Зеленодольск</a></div>
+              <div data-find="знаменка" class="city-list-link"><a href="https://internet-by-address.ru/znamenka">Знаменка</a></div>
+              <div data-find="знаменск" class="city-list-link"><a href="https://internet-by-address.ru/znamensk">Знаменск</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">И</div>
+            <div class="letter-list">
+              <div data-find="иваново" class="city-list-link"><a href="https://internet-by-address.ru/ivanovo">Иваново</a></div>
+              <div data-find="ивантеевка" class="city-list-link"><a href="https://internet-by-address.ru/ivanteevka">Ивантеевка</a></div>
+              <div data-find="ижевск" class="city-list-link"><a href="https://internet-by-address.ru/izhevsk">Ижевск</a></div>
+              <div data-find="иркутск" class="city-list-link"><a href="https://internet-by-address.ru/irkutsk">Иркутск</a></div>
+              <div data-find="искитим" class="city-list-link"><a href="https://internet-by-address.ru/iskitim">Искитим</a></div>
+              <div data-find="ишим" class="city-list-link"><a href="https://internet-by-address.ru/ishim">Ишим</a></div>
+              <div data-find="ишимбай" class="city-list-link"><a href="https://internet-by-address.ru/ishimbaj">Ишимбай</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">К</div>
+            <div class="letter-list">
+              <div data-find="казань" class="city-list-link"><a href="https://internet-by-address.ru/kazan">Казань</a></div>
+              <div data-find="каинская заимка" class="city-list-link"><a href="https://internet-by-address.ru/kainskaya-zaimka">Каинская Заимка</a></div>
+              <div data-find="калуга" class="city-list-link"><a href="https://internet-by-address.ru/kaluga">Калуга</a></div>
+              <div data-find="каменка" class="city-list-link"><a href="https://internet-by-address.ru/kamenka">Каменка</a></div>
+              <div data-find="каменск-уральский" class="city-list-link"><a href="https://internet-by-address.ru/kamensk-uralskij">Каменск-Уральский</a></div>
+              <div data-find="каменск-шахтинский" class="city-list-link"><a href="https://internet-by-address.ru/kamensk-shaxtinskij">Каменск-Шахтинский</a></div>
+              <div data-find="кемерово" class="city-list-link"><a href="https://internet-by-address.ru/kemerovo">Кемерово</a></div>
+              <div data-find="киров" class="city-list-link"><a href="https://internet-by-address.ru/kirov">Киров</a></div>
+              <div data-find="кирово-чепецк" class="city-list-link"><a href="https://internet-by-address.ru/kirovo-chepeczk">Кирово-Чепецк</a></div>
+              <div data-find="кисловодск" class="city-list-link"><a href="https://internet-by-address.ru/kislovodsk">Кисловодск</a></div>
+              <div data-find="колпино" class="city-list-link"><a href="https://internet-by-address.ru/kolpino">Колпино</a></div>
+              <div data-find="коммунарка" class="city-list-link"><a href="https://internet-by-address.ru/kommunarka">Коммунарка</a></div>
+              <div data-find="комсомольск-на-амуре" class="city-list-link"><a href="https://internet-by-address.ru/komsomolsk-na-amure">Комсомольск-на-Амуре</a></div>
+              <div data-find="кондратово" class="city-list-link"><a href="https://internet-by-address.ru/kondratovo">Кондратово</a></div>
+              <div data-find="коневка" class="city-list-link"><a href="https://internet-by-address.ru/konevka">Коневка</a></div>
+              <div data-find="королёв" class="city-list-link"><a href="https://internet-by-address.ru/korolyov">Королёв</a></div>
+              <div data-find="коряжма" class="city-list-link"><a href="https://internet-by-address.ru/koryazhma">Коряжма</a></div>
+              <div data-find="котельники" class="city-list-link"><a href="https://internet-by-address.ru/kotelniki">Котельники</a></div>
+              <div data-find="котовск" class="city-list-link"><a href="https://internet-by-address.ru/kotovsk">Котовск</a></div>
+              <div data-find="кохма" class="city-list-link"><a href="https://internet-by-address.ru/koxma">Кохма</a></div>
+              <div data-find="красненькая" class="city-list-link"><a href="https://internet-by-address.ru/krasnenkaya">Красненькая</a></div>
+              <div data-find="красноармейск" class="city-list-link"><a href="https://internet-by-address.ru/krasnoarmejsk">Красноармейск</a></div>
+              <div data-find="красногорск" class="city-list-link"><a href="https://internet-by-address.ru/krasnogorsk">Красногорск</a></div>
+              <div data-find="краснодар" class="city-list-link"><a href="https://internet-by-address.ru/krasnodar">Краснодар</a></div>
+              <div data-find="красное село" class="city-list-link"><a href="https://internet-by-address.ru/krasnoe-selo">Красное село</a></div>
+              <div data-find="краснокамск" class="city-list-link"><a href="https://internet-by-address.ru/krasnokamsk">Краснокамск</a></div>
+              <div data-find="краснообск" class="city-list-link"><a href="https://internet-by-address.ru/krasnoobsk">Краснообск</a></div>
+              <div data-find="красный бор" class="city-list-link"><a href="https://internet-by-address.ru/krasnyj-bor">Красный Бор</a></div>
+              <div data-find="криводановка" class="city-list-link"><a href="https://internet-by-address.ru/krivodanovka">Криводановка</a></div>
+              <div data-find="кстово" class="city-list-link"><a href="https://internet-by-address.ru/kstovo">Кстово</a></div>
+              <div data-find="кудрово" class="city-list-link"><a href="https://internet-by-address.ru/kudrovo">Кудрово</a></div>
+              <div data-find="кузнецк" class="city-list-link"><a href="https://internet-by-address.ru/kuzneczk">Кузнецк</a></div>
+              <div data-find="кулешовка" class="city-list-link"><a href="https://internet-by-address.ru/kuleshovka">Кулешовка</a></div>
+              <div data-find="курган" class="city-list-link"><a href="https://internet-by-address.ru/kurgan">Курган</a></div>
+              <div data-find="курск" class="city-list-link"><a href="https://internet-by-address.ru/kursk">Курск</a></div>
+              <div data-find="курчатов" class="city-list-link"><a href="https://internet-by-address.ru/kurchatov">Курчатов</a></div>
+              <div data-find="кызыл" class="city-list-link"><a href="https://internet-by-address.ru/kyzyl">Кызыл</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Л</div>
+            <div class="letter-list">
+              <div data-find="левокумка" class="city-list-link"><a href="https://internet-by-address.ru/levokumka">Левокумка</a></div>
+              <div data-find="лениногорск" class="city-list-link"><a href="https://internet-by-address.ru/leninogorsk">Лениногорск</a></div>
+              <div data-find="лесниково" class="city-list-link"><a href="https://internet-by-address.ru/lesnikovo">Лесниково</a></div>
+              <div data-find="лесозаводск" class="city-list-link"><a href="https://internet-by-address.ru/lesozavodsk">Лесозаводск</a></div>
+              <div data-find="липецк" class="city-list-link"><a href="https://internet-by-address.ru/lipeczk">Липецк</a></div>
+              <div data-find="лобня" class="city-list-link"><a href="https://internet-by-address.ru/lobnya">Лобня</a></div>
+              <div data-find="ложок" class="city-list-link"><a href="https://internet-by-address.ru/lozhok">Ложок</a></div>
+              <div data-find="лыткарино" class="city-list-link"><a href="https://internet-by-address.ru/lytkarino">Лыткарино</a></div>
+              <div data-find="люберцы" class="city-list-link"><a href="https://internet-by-address.ru/lyubercy">Люберцы</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">М</div>
+            <div class="letter-list">
+              <div data-find="магадан" class="city-list-link"><a href="https://internet-by-address.ru/magadan">Магадан</a></div>
+              <div data-find="магнитогорск" class="city-list-link"><a href="https://internet-by-address.ru/magnitogorsk">Магнитогорск</a></div>
+              <div data-find="майкоп" class="city-list-link"><a href="https://internet-by-address.ru/majkop">Майкоп</a></div>
+              <div data-find="майский" class="city-list-link"><a href="https://internet-by-address.ru/majskij">Майский</a></div>
+              <div data-find="маркова" class="city-list-link"><a href="https://internet-by-address.ru/markova">Маркова</a></div>
+              <div data-find="междуреченск" class="city-list-link"><a href="https://internet-by-address.ru/mezhdurechensk">Междуреченск</a></div>
+              <div data-find="менделеевск" class="city-list-link"><a href="https://internet-by-address.ru/mendeleevsk">Менделеевск</a></div>
+              <div data-find="менделеевский" class="city-list-link"><a href="https://internet-by-address.ru/mendeleevskij">Менделеевский</a></div>
+              <div data-find="металлплощадка" class="city-list-link"><a href="https://internet-by-address.ru/metallploshhadka">Металлплощадка</a></div>
+              <div data-find="мечниково" class="city-list-link"><a href="https://internet-by-address.ru/mechnikovo">Мечниково</a></div>
+              <div data-find="миасс" class="city-list-link"><a href="https://internet-by-address.ru/miass">Миасс</a></div>
+              <div data-find="минеральные воды" class="city-list-link"><a href="https://internet-by-address.ru/mineralnye-vody">Минеральные Воды</a></div>
+              <div data-find="мирный" class="city-list-link"><a href="https://internet-by-address.ru/mirnyj">Мирный</a></div>
+              <div data-find="михайловск" class="city-list-link"><a href="https://internet-by-address.ru/mixajlovsk">Михайловск</a></div>
+              <div data-find="можга" class="city-list-link"><a href="https://internet-by-address.ru/mozhga">Можга</a></div>
+              <div data-find="молочное" class="city-list-link"><a href="https://internet-by-address.ru/molochnoe">Молочное</a></div>
+              <div data-find="москва" class="city-list-link"><a href="https://internet-by-address.ru/">Москва</a></div>
+              <div data-find="московский" class="city-list-link"><a href="https://internet-by-address.ru/moskovskij">Московский</a></div>
+              <div data-find="муравленко" class="city-list-link"><a href="https://internet-by-address.ru/muravlenko">Муравленко</a></div>
+              <div data-find="мурино" class="city-list-link"><a href="https://internet-by-address.ru/murino">Мурино</a></div>
+              <div data-find="мытищи" class="city-list-link"><a href="https://internet-by-address.ru/mytishhi">Мытищи</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Н</div>
+            <div class="letter-list">
+              <div data-find="набережные челны" class="city-list-link"><a href="https://internet-by-address.ru/naberezhnye-chelny">Набережные Челны</a></div>
+              <div data-find="нариманов" class="city-list-link"><a href="https://internet-by-address.ru/narimanov">Нариманов</a></div>
+              <div data-find="наро-фоминск" class="city-list-link"><a href="https://internet-by-address.ru/naro-fominsk">Наро-Фоминск</a></div>
+              <div data-find="нахабино" class="city-list-link"><a href="https://internet-by-address.ru/naxabino">Нахабино</a></div>
+              <div data-find="находка" class="city-list-link"><a href="https://internet-by-address.ru/naxodka">Находка</a></div>
+              <div data-find="невинномысск" class="city-list-link"><a href="https://internet-by-address.ru/nevinnomyssk">Невинномысск</a></div>
+              <div data-find="немчиново" class="city-list-link"><a href="https://internet-by-address.ru/nemchinovo">Немчиново</a></div>
+              <div data-find="нефтекамск" class="city-list-link"><a href="https://internet-by-address.ru/neftekamsk">Нефтекамск</a></div>
+              <div data-find="нефтеюганск" class="city-list-link"><a href="https://internet-by-address.ru/nefteyugansk">Нефтеюганск</a></div>
+              <div data-find="нижневартовск" class="city-list-link"><a href="https://internet-by-address.ru/nizhnevartovsk">Нижневартовск</a></div>
+              <div data-find="нижнекамск" class="city-list-link"><a href="https://internet-by-address.ru/nizhnekamsk">Нижнекамск</a></div>
+              <div data-find="нижний новгород" class="city-list-link"><a href="https://internet-by-address.ru/nizhnij-novgorod">Нижний Новгород</a></div>
+              <div data-find="нижний тагил" class="city-list-link"><a href="https://internet-by-address.ru/nizhnij-tagil">Нижний Тагил</a></div>
+              <div data-find="новая мельница" class="city-list-link"><a href="https://internet-by-address.ru/novaya-melnicza">Новая Мельница</a></div>
+              <div data-find="ново-талицы" class="city-list-link"><a href="https://internet-by-address.ru/novo-talicy">Ново-Талицы</a></div>
+              <div data-find="новоглаголево" class="city-list-link"><a href="https://internet-by-address.ru/novoglagolevo">Новоглаголево</a></div>
+              <div data-find="новое девяткино" class="city-list-link"><a href="https://internet-by-address.ru/novoe-devyatkino">Новое Девяткино</a></div>
+              <div data-find="новокузнецк" class="city-list-link"><a href="https://internet-by-address.ru/novokuzneczk">Новокузнецк</a></div>
+              <div data-find="новороссийск" class="city-list-link"><a href="https://internet-by-address.ru/novorossijsk">Новороссийск</a></div>
+              <div data-find="новосибирск" class="city-list-link"><a href="https://internet-by-address.ru/novosibirsk">Новосибирск</a></div>
+              <div data-find="новотроицк" class="city-list-link"><a href="https://internet-by-address.ru/novotroiczk">Новотроицк</a></div>
+              <div data-find="новочеркасск" class="city-list-link"><a href="https://internet-by-address.ru/novocherkassk">Новочеркасск</a></div>
+              <div data-find="новошахтинск" class="city-list-link"><a href="https://internet-by-address.ru/novoshaxtinsk">Новошахтинск</a></div>
+              <div data-find="новые ляды" class="city-list-link"><a href="https://internet-by-address.ru/novye-lyady">Новые Ляды</a></div>
+              <div data-find="новый уренгой" class="city-list-link"><a href="https://internet-by-address.ru/novyj-urengoj">Новый Уренгой</a></div>
+              <div data-find="новь" class="city-list-link"><a href="https://internet-by-address.ru/nov">Новь</a></div>
+              <div data-find="ногинск" class="city-list-link"><a href="https://internet-by-address.ru/noginsk">Ногинск</a></div>
+              <div data-find="норильск" class="city-list-link"><a href="https://internet-by-address.ru/norilsk">Норильск</a></div>
+              <div data-find="ноябрьск" class="city-list-link"><a href="https://internet-by-address.ru/noyabrsk">Ноябрьск</a></div>
+              <div data-find="нягань" class="city-list-link"><a href="https://internet-by-address.ru/nyagan">Нягань</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">О</div>
+            <div class="letter-list">
+              <div data-find="образцово" class="city-list-link"><a href="https://internet-by-address.ru/obrazczovo">Образцово</a></div>
+              <div data-find="обь" class="city-list-link"><a href="https://internet-by-address.ru/ob">Обь</a></div>
+              <div data-find="одинцово" class="city-list-link"><a href="https://internet-by-address.ru/odinczovo">Одинцово</a></div>
+              <div data-find="октябрьский" class="city-list-link"><a href="https://internet-by-address.ru/oktyabrskij">Октябрьский</a></div>
+              <div data-find="омск" class="city-list-link"><a href="https://internet-by-address.ru/omsk">Омск</a></div>
+              <div data-find="орел" class="city-list-link"><a href="https://internet-by-address.ru/orel">Орел</a></div>
+              <div data-find="орёл" class="city-list-link"><a href="https://internet-by-address.ru/oryol">Орёл</a></div>
+              <div data-find="оренбург" class="city-list-link"><a href="https://internet-by-address.ru/orenburg">Оренбург</a></div>
+              <div data-find="орехово-зуево" class="city-list-link"><a href="https://internet-by-address.ru/orexovo-zuevo">Орехово-Зуево</a></div>
+              <div data-find="орск" class="city-list-link"><a href="https://internet-by-address.ru/orsk">Орск</a></div>
+              <div data-find="осинники" class="city-list-link"><a href="https://internet-by-address.ru/osinniki">Осинники</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">П</div>
+            <div class="letter-list">
+              <div data-find="павловск" class="city-list-link"><a href="https://internet-by-address.ru/pavlovsk">Павловск</a></div>
+              <div data-find="панковка" class="city-list-link"><a href="https://internet-by-address.ru/pankovka">Панковка</a></div>
+              <div data-find="пенза" class="city-list-link"><a href="https://internet-by-address.ru/penza">Пенза</a></div>
+              <div data-find="первомайский" class="city-list-link"><a href="https://internet-by-address.ru/orenburgskaya-oblast-pervomajskij">Первомайский</a></div>
+              <div data-find="первомайский" class="city-list-link"><a href="https://internet-by-address.ru/udmurtskaya-respublika-pervomajskij">Первомайский</a></div>
+              <div data-find="первомайский_о" class="city-list-link"><a href="https://internet-by-address.ru/pervomajskijo">Первомайский_о</a></div>
+              <div data-find="первомайский_у" class="city-list-link"><a href="https://internet-by-address.ru/pervomajskiju">Первомайский_У</a></div>
+              <div data-find="первоуральск" class="city-list-link"><a href="https://internet-by-address.ru/pervouralsk">Первоуральск</a></div>
+              <div data-find="пермь" class="city-list-link"><a href="https://internet-by-address.ru/perm">Пермь</a></div>
+              <div data-find="петрово-дальнее" class="city-list-link"><a href="https://internet-by-address.ru/petrovo-dalnee">Петрово-Дальнее</a></div>
+              <div data-find="петропавловск-камчатский" class="city-list-link"><a
+                  href="https://internet-by-address.ru/petropavlovsk-kamchatskij">Петропавловск-Камчатский</a>
+              </div>
+              <div data-find="петушки" class="city-list-link"><a href="https://internet-by-address.ru/petushki">Петушки</a></div>
+              <div data-find="подольск" class="city-list-link"><a href="https://internet-by-address.ru/podolsk">Подольск</a></div>
+              <div data-find="поздняково" class="city-list-link"><a href="https://internet-by-address.ru/pozdnyakovo">Поздняково</a></div>
+              <div data-find="пойковский" class="city-list-link"><a href="https://internet-by-address.ru/pojkovskij">Пойковский</a></div>
+              <div data-find="полевской" class="city-list-link"><a href="https://internet-by-address.ru/polevskoj">Полевской</a></div>
+              <div data-find="приволжский" class="city-list-link"><a href="https://internet-by-address.ru/privolzhskij">Приволжский</a></div>
+              <div data-find="пригородный" class="city-list-link"><a href="https://internet-by-address.ru/prigorodnyj">Пригородный</a></div>
+              <div data-find="псков" class="city-list-link"><a href="https://internet-by-address.ru/pskov">Псков</a></div>
+              <div data-find="пушкин" class="city-list-link"><a href="https://internet-by-address.ru/pushkin">Пушкин</a></div>
+              <div data-find="пушкино" class="city-list-link"><a href="https://internet-by-address.ru/pushkino">Пушкино</a></div>
+              <div data-find="пыть-ях" class="city-list-link"><a href="https://internet-by-address.ru/pyt-yax">Пыть-Ях</a></div>
+              <div data-find="пятигорск" class="city-list-link"><a href="https://internet-by-address.ru/pyatigorsk">Пятигорск</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Р</div>
+            <div class="letter-list">
+              <div data-find="радужный" class="city-list-link"><a href="https://internet-by-address.ru/raduzhnyj">Радужный</a></div>
+              <div data-find="разумное" class="city-list-link"><a href="https://internet-by-address.ru/razumnoe">Разумное</a></div>
+              <div data-find="раменское" class="city-list-link"><a href="https://internet-by-address.ru/ramenskoe">Раменское</a></div>
+              <div data-find="рассказово" class="city-list-link"><a href="https://internet-by-address.ru/rasskazovo">Рассказово</a></div>
+              <div data-find="реж" class="city-list-link"><a href="https://internet-by-address.ru/rezh">Реж</a></div>
+              <div data-find="реутов" class="city-list-link"><a href="https://internet-by-address.ru/reutov">Реутов</a></div>
+              <div data-find="ржев" class="city-list-link"><a href="https://internet-by-address.ru/rzhev">Ржев</a></div>
+              <div data-find="ростов-на-дону" class="city-list-link"><a href="https://internet-by-address.ru/rostov-na-donu">Ростов-на-Дону</a></div>
+              <div data-find="рыбное" class="city-list-link"><a href="https://internet-by-address.ru/rybnoe">Рыбное</a></div>
+              <div data-find="рязань" class="city-list-link"><a href="https://internet-by-address.ru/ryazan">Рязань</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">С</div>
+            <div class="letter-list">
+              <div data-find="садовый" class="city-list-link"><a href="https://internet-by-address.ru/sadovyj">Садовый</a></div>
+              <div data-find="салават" class="city-list-link"><a href="https://internet-by-address.ru/salavat">Салават</a></div>
+              <div data-find="самара" class="city-list-link"><a href="https://internet-by-address.ru/samara">Самара</a></div>
+              <div data-find="санкт-петербург" class="city-list-link"><a href="https://internet-by-address.ru/sankt-peterburg">Санкт-Петербург</a></div>
+              <div data-find="сарапул" class="city-list-link"><a href="https://internet-by-address.ru/sarapul">Сарапул</a></div>
+              <div data-find="саратов" class="city-list-link"><a href="https://internet-by-address.ru/saratov">Саратов</a></div>
+              <div data-find="саров" class="city-list-link"><a href="https://internet-by-address.ru/sarov">Саров</a></div>
+              <div data-find="сахарово" class="city-list-link"><a href="https://internet-by-address.ru/saxarovo">Сахарово</a></div>
+              <div data-find="свободный" class="city-list-link"><a href="https://internet-by-address.ru/svobodnyj">Свободный</a></div>
+              <div data-find="северный" class="city-list-link"><a href="https://internet-by-address.ru/severnyj">Северный</a></div>
+              <div data-find="северодвинск" class="city-list-link"><a href="https://internet-by-address.ru/severodvinsk">Северодвинск</a></div>
+              <div data-find="сергиев посад" class="city-list-link"><a href="https://internet-by-address.ru/sergiev-posad">Сергиев Посад</a></div>
+              <div data-find="серпухов" class="city-list-link"><a href="https://internet-by-address.ru/serpuxov">Серпухов</a></div>
+              <div data-find="сестрорецк" class="city-list-link"><a href="https://internet-by-address.ru/sestroreczk">Сестрорецк</a></div>
+              <div data-find="сизево" class="city-list-link"><a href="https://internet-by-address.ru/sizevo">Сизево</a></div>
+              <div data-find="смоленск" class="city-list-link"><a href="https://internet-by-address.ru/smolensk">Смоленск</a></div>
+              <div data-find="совхоза рязанский" class="city-list-link"><a href="https://internet-by-address.ru/sovxoza-ryazanskij">Совхоза Рязанский</a></div>
+              <div data-find="совхозный" class="city-list-link"><a href="https://internet-by-address.ru/sovxoznyj">Совхозный</a></div>
+              <div data-find="соликамск" class="city-list-link"><a href="https://internet-by-address.ru/solikamsk">Соликамск</a></div>
+              <div data-find="солнечногорск" class="city-list-link"><a href="https://internet-by-address.ru/solnechnogorsk">Солнечногорск</a></div>
+              <div data-find="солнечный" class="city-list-link"><a href="https://internet-by-address.ru/solnechnyj">Солнечный</a></div>
+              <div data-find="сорочинск" class="city-list-link"><a href="https://internet-by-address.ru/sorochinsk">Сорочинск</a></div>
+              <div data-find="сосновый бор" class="city-list-link"><a href="https://internet-by-address.ru/sosnovyj-bor">Сосновый Бор</a></div>
+              <div data-find="сочи" class="city-list-link"><a href="https://internet-by-address.ru/sochi">Сочи</a></div>
+              <div data-find="ставрополь" class="city-list-link"><a href="https://internet-by-address.ru/stavropol">Ставрополь</a></div>
+              <div data-find="старцево" class="city-list-link"><a href="https://internet-by-address.ru/starcevo">Старцево</a></div>
+              <div data-find="старые кены" class="city-list-link"><a href="https://internet-by-address.ru/starye-keny">Старые Кены</a></div>
+              <div data-find="старый оскол" class="city-list-link"><a href="https://internet-by-address.ru/staryj-oskol">Старый Оскол</a></div>
+              <div data-find="стерлитамак" class="city-list-link"><a href="https://internet-by-address.ru/sterlitamak">Стерлитамак</a></div>
+              <div data-find="столбово" class="city-list-link"><a href="https://internet-by-address.ru/stolbovo">Столбово</a></div>
+              <div data-find="столовое" class="city-list-link"><a href="https://internet-by-address.ru/stolovoe">Столовое</a></div>
+              <div data-find="строитель" class="city-list-link"><a href="https://internet-by-address.ru/belgorodskaya-oblast-stroitel">Строитель</a></div>
+              <div data-find="строитель" class="city-list-link"><a href="https://internet-by-address.ru/tambovskaya-oblast-stroitel">Строитель</a></div>
+              <div data-find="строитель_б" class="city-list-link"><a href="https://internet-by-address.ru/stroitelb">Строитель_б</a></div>
+              <div data-find="строитель_т" class="city-list-link"><a href="https://internet-by-address.ru/stroitelt">Строитель_Т</a></div>
+              <div data-find="ступино" class="city-list-link"><a href="https://internet-by-address.ru/stupino">Ступино</a></div>
+              <div data-find="суздаль" class="city-list-link"><a href="https://internet-by-address.ru/suzdal">Суздаль</a></div>
+              <div data-find="сургут" class="city-list-link"><a href="https://internet-by-address.ru/surgut">Сургут</a></div>
+              <div data-find="сырково" class="city-list-link"><a href="https://internet-by-address.ru/syrkovo">Сырково</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Т</div>
+            <div class="letter-list">
+              <div data-find="таганрог" class="city-list-link"><a href="https://internet-by-address.ru/taganrog">Таганрог</a></div>
+              <div data-find="тамбов" class="city-list-link"><a href="https://internet-by-address.ru/tambov">Тамбов</a></div>
+              <div data-find="тверь" class="city-list-link"><a href="https://internet-by-address.ru/tver">Тверь</a></div>
+              <div data-find="тельмана" class="city-list-link"><a href="https://internet-by-address.ru/telmana">Тельмана</a></div>
+              <div data-find="тобольск" class="city-list-link"><a href="https://internet-by-address.ru/tobolsk">Тобольск</a></div>
+              <div data-find="тольятти" class="city-list-link"><a href="https://internet-by-address.ru/tolyatti">Тольятти</a></div>
+              <div data-find="томск" class="city-list-link"><a href="https://internet-by-address.ru/tomsk">Томск</a></div>
+              <div data-find="тоцкое второе" class="city-list-link"><a href="https://internet-by-address.ru/toczkoe-vtoroe">Тоцкое Второе</a></div>
+              <div data-find="тоцкое-2" class="city-list-link"><a href="https://internet-by-address.ru/toczkoe-2">Тоцкое-2</a></div>
+              <div data-find="троицк" class="city-list-link"><a href="https://internet-by-address.ru/troiczk">Троицк</a></div>
+              <div data-find="тула" class="city-list-link"><a href="https://internet-by-address.ru/tula">Тула</a></div>
+              <div data-find="тюмень" class="city-list-link"><a href="https://internet-by-address.ru/tyumen">Тюмень</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">У</div>
+            <div class="letter-list">
+              <div data-find="улан-удэ" class="city-list-link"><a href="https://internet-by-address.ru/ulan-ude">Улан-Удэ</a></div>
+              <div data-find="ульяновск" class="city-list-link"><a href="https://internet-by-address.ru/ulyanovsk">Ульяновск</a></div>
+              <div data-find="уссурийск" class="city-list-link"><a href="https://internet-by-address.ru/ussurijsk">Уссурийск</a></div>
+              <div data-find="уфа" class="city-list-link"><a href="https://internet-by-address.ru/ufa">Уфа</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Ф</div>
+            <div class="letter-list">
+              <div data-find="филино" class="city-list-link"><a href="https://internet-by-address.ru/filino">Филино</a></div>
+              <div data-find="фурманов" class="city-list-link"><a href="https://internet-by-address.ru/furmanov">Фурманов</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Х</div>
+            <div class="letter-list">
+              <div data-find="хабаровск" class="city-list-link"><a href="https://internet-by-address.ru/xabarovsk">Хабаровск</a></div>
+              <div data-find="химки" class="city-list-link"><a href="https://internet-by-address.ru/ximki">Химки</a></div>
+              <div data-find="хирино" class="city-list-link"><a href="https://internet-by-address.ru/xirino">Хирино</a></div>
+              <div data-find="хохряки" class="city-list-link"><a href="https://internet-by-address.ru/xoxryaki">Хохряки</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Ч</div>
+            <div class="letter-list">
+              <div data-find="чалтырь" class="city-list-link"><a href="https://internet-by-address.ru/chaltyr">Чалтырь</a></div>
+              <div data-find="челябинск" class="city-list-link"><a href="https://internet-by-address.ru/chelyabinsk">Челябинск</a></div>
+              <div data-find="череповец" class="city-list-link"><a href="https://internet-by-address.ru/cherepovecz">Череповец</a></div>
+              <div data-find="чехов" class="city-list-link"><a href="https://internet-by-address.ru/chexov">Чехов</a></div>
+              <div data-find="чита" class="city-list-link"><a href="https://internet-by-address.ru/chita">Чита</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Ш</div>
+            <div class="letter-list">
+              <div data-find="шабровский" class="city-list-link"><a href="https://internet-by-address.ru/shabrovskij">Шабровский</a></div>
+              <div data-find="шахты" class="city-list-link"><a href="https://internet-by-address.ru/shaxty">Шахты</a></div>
+              <div data-find="шигаево" class="city-list-link"><a href="https://internet-by-address.ru/shigaevo">Шигаево</a></div>
+              <div data-find="шолоховский" class="city-list-link"><a href="https://internet-by-address.ru/sholoxovskij">Шолоховский</a></div>
+              <div data-find="шушары" class="city-list-link"><a href="https://internet-by-address.ru/shushary">Шушары</a></div>
+              <div data-find="шуя" class="city-list-link"><a href="https://internet-by-address.ru/shuya">Шуя</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Щ</div>
+            <div class="letter-list">
+              <div data-find="щекино" class="city-list-link"><a href="https://internet-by-address.ru/shhekino">Щекино</a></div>
+              <div data-find="щелково" class="city-list-link"><a href="https://internet-by-address.ru/shhelkovo">Щелково</a></div>
+              <div data-find="щербинка" class="city-list-link"><a href="https://internet-by-address.ru/shherbinka">Щербинка</a></div>
+              <div data-find="щигры" class="city-list-link"><a href="https://internet-by-address.ru/shhigry">Щигры</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Э</div>
+            <div class="letter-list">
+              <div data-find="элеватор" class="city-list-link"><a href="https://internet-by-address.ru/elevator">Элеватор</a></div>
+              <div data-find="электросталь" class="city-list-link"><a href="https://internet-by-address.ru/elektrostal">Электросталь</a></div>
+              <div data-find="элиста" class="city-list-link"><a href="https://internet-by-address.ru/elista">Элиста</a></div>
+              <div data-find="эльбан" class="city-list-link"><a href="https://internet-by-address.ru/elban">Эльбан</a></div>
+              <div data-find="энгельс" class="city-list-link"><a href="https://internet-by-address.ru/engels">Энгельс</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">Я</div>
+            <div class="letter-list">
+              <div data-find="яблоновский" class="city-list-link"><a href="https://internet-by-address.ru/yablonovskij">Яблоновский</a></div>
+              <div data-find="якутск" class="city-list-link"><a href="https://internet-by-address.ru/yakutsk">Якутск</a></div>
+              <div data-find="ярославль" class="city-list-link"><a href="https://internet-by-address.ru/yaroslavl">Ярославль</a></div>
+              <div data-find="ясный" class="city-list-link"><a href="https://internet-by-address.ru/yasnyj">Ясный</a></div>
+            </div>
+          </div>
+          <div class="city-list-el">
+            <div class="city-list-letter">д</div>
+            <div class="letter-list">
+              <div data-find="д. новоглаголево" class="city-list-link"><a href="https://internet-by-address.ru/d-novoglagolevo">д. Новоглаголево</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="transparent hide-laptop"></div>
+      </div>
+    </div>
+
+  </div>
   </div>
 
   <script type="module" src="./script/index.js"></script>
