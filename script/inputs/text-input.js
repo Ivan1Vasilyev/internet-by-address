@@ -28,7 +28,6 @@ export default class TextInput {
     e.stopPropagation();
 
     if (this._externalResetHandler) {
-      console.log('reset');
       this._externalResetHandler();
     }
 

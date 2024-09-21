@@ -4,6 +4,8 @@ export const selectors = {
   citiesContainer: '.cities-container',
   citiesInput: '.popup-container input[type="text"]',
   cityListEl: '.city-list-el',
+  cityListLetter: '.city-list-letter',
+  cityListLink: '.city-list-link',
   error: '.error',
   executeButton: '.execute',
   filters: '.filter-area .filter:not(.sort)',
@@ -58,6 +60,7 @@ export const classes = {
   filling: 'filling',
   filled: 'filled',
   focus: 'focus',
+  found: 'found',
   opened: 'opened',
   popupOverlay: 'overlay',
 };

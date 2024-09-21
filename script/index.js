@@ -12,17 +12,18 @@ import OrderForm from './order-form/order-form.js';
 import PopupWithForm from './popup/popup-with-form.js';
 import PhoneInput from './inputs/phone-input.js';
 import PopupWithCities from './popup/popup-with-cities.js';
+import SearchCities from './search-cities/search-cities.js';
 
 const resizeHandlers = [];
 const eventListeners = [];
 
-document.querySelectorAll(selectors.textInput).forEach((input) => {
-  // eventListeners.push(new TextInput(input));
-});
+// document.querySelectorAll(selectors.textInput).forEach((input) => {
+//   eventListeners.push(new TextInput(input));
+// });
 
-document.querySelectorAll(selectors.phoneInput).forEach((input) => {
-  // eventListeners.push(new PhoneInput(input));
-});
+// document.querySelectorAll(selectors.phoneInput).forEach((input) => {
+//   eventListeners.push(new PhoneInput(input));
+// });
 
 const popupWithCities = new PopupWithCities(document.querySelector(selectors.popupCities));
 
@@ -77,6 +78,9 @@ document.querySelectorAll('[tariff-cards-container]').forEach((container) => {
     eventListeners.push(cardRangeInput);
   });
 });
+
+const searchCities = new SearchCities(document.querySelector(selectors.popupCities));
+eventListeners.push(searchCities);
 
 document.querySelector(selectors.showFilterContainer).addEventListener('click', () => alert('open filters popup'));
 
