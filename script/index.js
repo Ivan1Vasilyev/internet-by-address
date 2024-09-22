@@ -88,3 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
   new ResizeListener(window, resizeHandlers).setResizeListeners();
   eventListeners.forEach((listener) => listener.setEventListeners());
 });
+
+let str = '123<span class="color-blue">456</span> 7';
+console.log(str.replace(/(<span class="color-blue">|<\/span>)/g, ''));

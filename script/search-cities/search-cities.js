@@ -2,6 +2,7 @@ import { classes, selectors } from '../utils/css-tools.js';
 import { keyboardDict } from '../utils/constants.js';
 import FormBase from '../order-form/form-base.js';
 import { hideElem, showElem } from '../utils/helpers.js';
+import drawMatchesService from '../services/draw-mathes-service.js';
 
 export default class SearchCities extends FormBase {
   _isInitCompleted = false;
@@ -38,9 +39,7 @@ export default class SearchCities extends FormBase {
       searchValue = value;
     }
 
-    this._executeSearch(searchValue.trim().toLowerCase());
-
-    console.log(searchValue);
+    this._executeSearch(searchValue);
   };
 
   _resetTextInputHandler = () => {
@@ -52,6 +51,10 @@ export default class SearchCities extends FormBase {
     this._cities.forEach((i) => {
       if (i.getAttribute('data-find').includes(searchValue)) {
         showElem(i);
+        const link = i.querySelector('a');
+        const result = drawMatchesService.drawMatches(searchValue, link.textContent);
+        console.log(result);
+        link.innerHTML = result;
       } else {
         hideElem(i);
       }
