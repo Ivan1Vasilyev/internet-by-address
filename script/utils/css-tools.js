@@ -31,6 +31,7 @@ export const selectors = {
   popupCloseButton: '.close-icon',
   popupContainer: '.popup-container',
   popupCities: '.popup.cities',
+  popupFilters: '.popup.filters',
   popupOrderForm: '.popup.order-form',
   price: '.current-price .digits',
   promoInfo: '.action-mark.action-length',
@@ -49,7 +50,7 @@ export const selectors = {
   tariffCardsContainer: '.tariffs',
   tariffsContainer: '.tariffs-container',
   text: '.text',
-  textInput: 'label.text-input:not([data-type="phone"])',
+  textInput: 'label.text-input[data-type="text"]',
   thanksButton: '[data-state="success"] .button',
 };
 
@@ -76,6 +77,7 @@ export const attributes = {
   filterBySpeed: 'filter_by-speed',
   filterByTariffType: 'filter_by-tariff-type',
   filterType: 'filter-type',
+  find: 'data-find',
   options: 'data-options',
   sortAction: 'sort-action',
   sortMaxPrice: 'sort-max_price',

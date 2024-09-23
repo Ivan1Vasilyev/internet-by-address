@@ -780,7 +780,7 @@ header {
   justify-content: space-between;
 }
 
-.filter-buttons button {
+.filter-buttons .simple-button {
   padding: 5px 0;
 }
 
@@ -1816,6 +1816,26 @@ input[type='range']::-ms-thumb {
   }
 }
 
+/*  ===========================================================     popup filters    ===========================================================  */
+
+.filters .popup-container {
+  padding: 40px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 80px);
+}
+
+@media (max-width: 768px) {
+  .popup.overlay.filters .popup-container {
+    animation: mobCitiesPopupDown 0.5s ease-out;
+  }
+
+  .popup.overlay.filters.opened .popup-container {
+    top: 0;
+    animation: mobPopupUp 0.5s ease-out;
+  }
+}
 /*  ===========================================================     hide show    ===========================================================  */
 
 .hidden {

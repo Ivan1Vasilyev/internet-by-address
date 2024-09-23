@@ -23,10 +23,10 @@ export default class PhoneInput extends TextInput {
       const caretPosition = input.selectionEnd;
       if (inputType?.startsWith('deleteContent') && this._noDeletionPositions.includes(caretPosition)) {
         input.value = this._previousValue;
-        const newPosition = caretPosition + (inputType.endsWith('Forward') ? 1 : 0);
+        const newCaretPosition = caretPosition + (inputType.endsWith('Forward') ? 1 : 0);
 
-        e.target.selectionStart = newPosition;
-        e.target.selectionEnd = newPosition;
+        e.target.selectionStart = newCaretPosition;
+        e.target.selectionEnd = newCaretPosition;
       } else {
         const digits = input.value
           .replace(/^\+?7\s/, '')
@@ -41,12 +41,12 @@ export default class PhoneInput extends TextInput {
         }
 
         const diffPosition = input.value.length - caretPosition;
-        const newPosition = result == this._previousValue ? caretPosition - 1 : caretPosition;
+        const newCaretPosition = result == this._previousValue ? caretPosition - 1 : caretPosition;
         this._previousValue = input.value = result;
 
-        if (diffPosition && input.value.length <= 18) {
-          e.target.selectionStart = newPosition;
-          e.target.selectionEnd = newPosition;
+        if (diffPosition > 0 && input.value.length <= 18) {
+          e.target.selectionStart = newCaretPosition;
+          e.target.selectionEnd = newCaretPosition;
         }
       }
     }

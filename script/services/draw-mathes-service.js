@@ -1,35 +1,33 @@
 class DrawMatchesService {
   _spanOpen = '<span class="color-blue">';
   _spanClose = '</span>';
-  _spanAsRegex = /(<span class="color-blue">|<\/span>)/g;
+  _spanAsRegex = new RegExp(`(${this._spanOpen}|${this._spanClose})`, 'g');
 
-  drawMatches = (searchText, targetText) => {
-    searchText = searchText.trim().toLowerCase();
+  drawMatches = (search, source) => {
+    search = search.trim();
+    const searchToLower = search.toLowerCase();
+    const sourceToLower = source.toLowerCase();
 
-    const targetTextToLower = targetText.toLowerCase();
-
-    let result = this.clearMatches(targetText);
-    let start = 0;
-
-    const indexes = [];
+    let result = '';
+    let startIndex = 0;
+    let lastIndex = 0;
     while (true) {
-      const startIndex = targetTextToLower.indexOf(searchText, start);
-      if (startIndex < 0) break;
+      const index = sourceToLower.indexOf(searchToLower, startIndex);
+      if (index < 0) break;
 
-      indexes.push(startIndex);
-      start = endIndex;
+      lastIndex = index + search.length;
+      result += source.slice(startIndex, index) + this._wrapMatch(source.slice(index, lastIndex));
+      startIndex = lastIndex;
     }
 
-    for (let i = 0; i < targetText.length; i++) {
-      result = result.slice(0, startIndex) + this._wrapMatch(searchText) + result.slice(endIndex);
-    }
+    result += source.slice(lastIndex);
 
     return result;
   };
 
   _wrapMatch = (match) => `${this._spanOpen}${match}${this._spanClose}`;
 
-  clearMatches = (str) => str.replaceAll(this._spanOpen, '').replaceAll(this._spanClose, '');
+  clearMatches = (str) => str.replace(this._spanAsRegex, '');
 }
 
 const drawMatchesService = new DrawMatchesService();

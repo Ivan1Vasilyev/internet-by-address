@@ -8,6 +8,7 @@ export default class Popup {
     this._popupContainer = popup.querySelector(selectors.popupContainer);
     this._maxTop = window.innerHeight - this._popupContainer.getBoundingClientRect().height;
     this._touchMoveHandler = this._touchMoveHandler.bind(this);
+    this._touchStartHandler = this._touchStartHandler.bind(this);
     this._preventDefault = this._preventDefault.bind(this);
   }
 
@@ -24,6 +25,7 @@ export default class Popup {
     } else {
       document.addEventListener('keydown', this._handleEscClose);
     }
+
     this._popup.classList.add(classes.opened);
   };
 
