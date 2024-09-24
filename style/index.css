@@ -1818,12 +1818,39 @@ input[type='range']::-ms-thumb {
 
 /*  ===========================================================     popup filters    ===========================================================  */
 
-.filters .popup-container {
+.popup.overlay.filters .popup-container {
   padding: 40px 20px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: calc(100vh - 80px);
+}
+
+.popup.filters .filters-container {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 5px;
+  margin-bottom: 25px;
+}
+
+.popup.filters .filter-area {
+  flex-direction: column;
+  margin: 0;
+}
+
+.popup.filters .title-popup {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.popup.filters .reset.button {
+  padding: 20px 30px;
+}
+
+.popup.filters .filter-content {
+  position: initial;
+  margin-top: 5px;
 }
 
 @media (max-width: 768px) {

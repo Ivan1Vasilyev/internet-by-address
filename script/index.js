@@ -63,6 +63,21 @@ document.querySelectorAll('[tariff-cards-container]').forEach((container) => {
     eventListeners.push(new Sorter(item, cards, container, showMore.displayShowMoreButton));
   });
 
+  container.querySelectorAll(selectors.filtersPopup).forEach((item) => {
+    switch (item.getAttribute(attributes.filterType)) {
+      case 'checkbox':
+        eventListeners.push(new FilterCheckbox(item, filterExecutor.selectedFilters, filterExecutor.executeFilters));
+        break;
+      case 'speed':
+        eventListeners.push(new FilterSpeed(item, filterExecutor.selectedFilters, filterExecutor.executeFilters));
+        break;
+    }
+  });
+
+  container.querySelectorAll(selectors.sortPopupContainer).forEach((item) => {
+    eventListeners.push(new Sorter(item, cards, container, showMore.displayShowMoreButton));
+  });
+
   cards.forEach((card) => {
     eventListeners.push(new CardIcon(card));
     const rangeInput = card.querySelector(selectors.rangeInput);
