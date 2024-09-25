@@ -1,5 +1,5 @@
 import FilterExecutor from './tariffs/filters/filter-executor.js';
-import FilterCheckbox from './tariffs/filters/filter-checkbox.js';
+import FilterCheckbox from './tariffs/filters/desc-filters/filter-checkbox.js';
 import CardRangeInput from './tariffs/range-input.js';
 import ShowMore from './tariffs/show-more.js';
 import Sorter from './tariffs/sorter.js';
@@ -7,7 +7,7 @@ import TextInput from './inputs/text-input.js';
 import PhoneInput from './inputs/phone-input.js';
 import ResizeListener from './common/resize-listener.js';
 import { attributes, selectors } from './utils/css-tools.js';
-import FilterSpeed from './tariffs/filters/filter-speed.js';
+import FilterSpeed from './tariffs/filters/desc-filters/filter-speed.js';
 import CardIcon from './tariffs/card-icon.js';
 import OrderForm from './form/order-form/order-form.js';
 import PopupWithForm from './popup/popup-with-form.js';
@@ -63,20 +63,20 @@ document.querySelectorAll('[tariff-cards-container]').forEach((container) => {
     eventListeners.push(new Sorter(item, cards, container, showMore.displayShowMoreButton));
   });
 
-  container.querySelectorAll(selectors.filtersPopup).forEach((item) => {
-    switch (item.getAttribute(attributes.filterType)) {
-      case 'checkbox':
-        eventListeners.push(new FilterCheckbox(item, filterExecutor.selectedFilters, filterExecutor.executeFilters));
-        break;
-      case 'speed':
-        eventListeners.push(new FilterSpeed(item, filterExecutor.selectedFilters, filterExecutor.executeFilters));
-        break;
-    }
-  });
+  // container.querySelectorAll(selectors.filtersPopup).forEach((item) => {
+  //   switch (item.getAttribute(attributes.filterType)) {
+  //     case 'checkbox':
+  //       eventListeners.push(new FilterCheckbox(item, filterExecutor.selectedFilters, filterExecutor.executeFilters));
+  //       break;
+  //     case 'speed':
+  //       eventListeners.push(new FilterSpeed(item, filterExecutor.selectedFilters, filterExecutor.executeFilters));
+  //       break;
+  //   }
+  // });
 
-  container.querySelectorAll(selectors.sortPopupContainer).forEach((item) => {
-    eventListeners.push(new Sorter(item, cards, container, showMore.displayShowMoreButton));
-  });
+  // container.querySelectorAll(selectors.sortPopupContainer).forEach((item) => {
+  //   eventListeners.push(new Sorter(item, cards, container, showMore.displayShowMoreButton));
+  // });
 
   cards.forEach((card) => {
     eventListeners.push(new CardIcon(card));

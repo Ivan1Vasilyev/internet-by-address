@@ -1,12 +1,8 @@
-import { classes, attributes } from '../../utils/css-tools.js';
-import FilterBase from './filter-base.js';
+import PopupFilterBase from './popup-filter-base';
 
-export default class FilterCheckbox extends FilterBase {
-  _currentSelectedFilters = new Set();
-  _result = [];
-
-  constructor(filter, selectedFilters, executeFilters) {
-    super(filter, selectedFilters, executeFilters);
+export default class PopupFilterCheckbox extends PopupFilterBase {
+  constructor(filter, selectedFilters, inputHandler) {
+    super(filter, selectedFilters, inputHandler);
     this._inputAll = this._allInputs.find((i) => i.value == 'all');
     this._inputs = this._allInputs.filter((i) => i.name != this._inputAll.name);
   }
@@ -47,7 +43,7 @@ export default class FilterCheckbox extends FilterBase {
   };
 
   _setFilterText = (inputs) => {
-    if (inputs.length > 0) {
+    if (inputs.length) {
       if (inputs.length == this._inputs.length) {
         this._filterText.textContent = this._allSelectedText;
       } else {
@@ -58,8 +54,6 @@ export default class FilterCheckbox extends FilterBase {
 
         this._filterText.textContent = this._getResultText;
       }
-
-      this._filter.classList.add(classes.filled);
     } else {
       this._filterText.textContent = this._defaultText;
     }
@@ -68,14 +62,13 @@ export default class FilterCheckbox extends FilterBase {
   _executeFiltersHandler = () => {
     const inputs = [...this._currentSelectedFilters];
     this._result = inputs.map((i) => i.name);
-    this._setFilterText(inputs);
 
-    super._executeFiltersHandler();
+    this._setFilterText(inputs);
   };
 
-  _resetButtonHandler = () => {
-    super._resetButtonHandler();
+  resetButtonHandler = () => {
     this._currentSelectedFilters.clear();
     this._result = [];
+    super.resetButtonHandler();
   };
 }

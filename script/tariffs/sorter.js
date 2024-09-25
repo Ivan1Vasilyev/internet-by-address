@@ -22,9 +22,8 @@ export default class Sorter {
     const input = e.target;
     if (input.tagName != 'INPUT') return;
 
-    const selectedText = input.closest(selectors.item).querySelector(selectors.text).textContent;
+    this._sortText.textContent = input.closest(selectors.item).querySelector(selectors.text).textContent;
     this._sortCards(input.value);
-    this._sortText.textContent = selectedText;
   };
 
   _sortCards = (sortType) => {

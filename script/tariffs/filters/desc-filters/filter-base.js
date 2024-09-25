@@ -1,4 +1,4 @@
-import { selectors, classes, attributes } from '../../utils/css-tools.js';
+import { selectors, classes, attributes } from '../../../utils/css-tools.js';
 
 export default class FilterBase {
   _resultText = '';
@@ -33,21 +33,19 @@ export default class FilterBase {
     this._inputArea.addEventListener('input', this._inputAreaHandler);
   }
 
-  _executeFiltersHandler() {
-    this._selectedFilters[this._type] = this._result;
+  _executeFiltersHandler = () => {
     this._filter.classList.remove(classes.opened);
     this._executeButton.setAttribute(attributes.disabled, true);
+    this._setFilterText();
     this._executeFilters();
-  }
+  };
 
-  _resetInputs() {
-    this._allInputs.forEach((i) => (i.checked = false));
-  }
+  _resetInputs = () => this._allInputs.forEach((i) => (i.checked = false));
 
   _arrButtonHandler = () => this._filter.classList.toggle(classes.opened);
 
   _resetButtonHandler() {
-    this._resetInputs(this._allInputs);
+    this._resetInputs();
     this._executeButton.removeAttribute(attributes.disabled);
     this._resetButton.setAttribute(attributes.disabled, true);
   }
