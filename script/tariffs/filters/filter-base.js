@@ -27,8 +27,10 @@ export default class FilterBase {
   }
 
   setEventListeners() {
-    this._arrButton.addEventListener('click', () => this._arrButtonHandler());
-    this._resetButton.addEventListener('click', () => this._resetButtonHandler());
+    this._arrButton.addEventListener('click', this._arrButtonHandler);
+    this._resetButton.addEventListener('click', this._resetButtonHandler);
+    this._executeButton.addEventListener('click', this._executeFiltersHandler);
+    this._inputArea.addEventListener('input', this._inputAreaHandler);
   }
 
   _executeFiltersHandler() {

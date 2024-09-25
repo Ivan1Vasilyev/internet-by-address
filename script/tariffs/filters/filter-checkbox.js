@@ -11,12 +11,6 @@ export default class FilterCheckbox extends FilterBase {
     this._inputs = this._allInputs.filter((i) => i.name != this._inputAll.name);
   }
 
-  setEventListeners = () => {
-    super.setEventListeners();
-    this._executeButton.addEventListener('click', this._executeFiltersHandler);
-    this._inputArea.addEventListener('input', this._inputAreaHandler);
-  };
-
   _inputAreaHandler = (e) => {
     const input = e.target;
     if (input.tagName != 'INPUT') return;
@@ -52,10 +46,7 @@ export default class FilterCheckbox extends FilterBase {
     }
   };
 
-  _executeFiltersHandler = () => {
-    const inputs = [...this._currentSelectedFilters];
-    this._result = inputs.map((i) => i.name);
-
+  _setFilterText = (inputs) => {
     if (inputs.length > 0) {
       if (inputs.length == this._inputs.length) {
         this._filterText.textContent = this._allSelectedText;
@@ -72,6 +63,13 @@ export default class FilterCheckbox extends FilterBase {
     } else {
       this._filterText.textContent = this._defaultText;
     }
+  };
+
+  _executeFiltersHandler = () => {
+    const inputs = [...this._currentSelectedFilters];
+    this._result = inputs.map((i) => i.name);
+    this._setFilterText(inputs);
+
     super._executeFiltersHandler();
   };
 

@@ -15,12 +15,6 @@ export default class FilterSpeed extends FilterBase {
     super(filter, selectedFilters, executeFilters);
   }
 
-  setEventListeners = () => {
-    super.setEventListeners();
-    this._executeButton.addEventListener('click', this._executeFiltersHandler);
-    this._inputArea.addEventListener('input', this._inputAreaHandler);
-  };
-
   _inputAreaHandler = (e) => {
     const input = e.target;
     if (input.tagName != 'INPUT') return;
@@ -38,7 +32,7 @@ export default class FilterSpeed extends FilterBase {
     this._resetButton.removeAttribute(attributes.disabled);
   };
 
-  _executeFiltersHandler = () => {
+  _setFilterText = () => {
     if (this._result.value !== undefined) {
       if (this._isAll) {
         this._filterText.textContent = this._allSelectedText;
@@ -50,7 +44,10 @@ export default class FilterSpeed extends FilterBase {
     } else {
       this._filterText.textContent = this._defaultText;
     }
+  };
 
+  _executeFiltersHandler = () => {
+    this._setFilterText();
     super._executeFiltersHandler();
   };
 
