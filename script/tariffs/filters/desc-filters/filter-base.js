@@ -1,7 +1,7 @@
-import { selectors, classes, attributes } from '../../../utils/css-tools.js';
+import { selectors, classes, attributes } from "../../../utils/css-tools.js";
 
 export default class FilterBase {
-  _resultText = '';
+  _resultText = "";
 
   get _getResultText() {
     if (this._additionalText) {
@@ -22,15 +22,19 @@ export default class FilterBase {
     this._allInputs = [...filter.querySelectorAll(selectors.input)];
     this._type = filter.getAttribute(attributes.filterExecuteProperty);
     this._defaultText = this._filterText.getAttribute(attributes.defaultText);
-    this._allSelectedText = this._filterText.getAttribute(attributes.allSelectedText);
-    this._additionalText = this._filterText.getAttribute(attributes.additonalText);
+    this._allSelectedText = this._filterText.getAttribute(
+      attributes.allSelectedText
+    );
+    this._additionalText = this._filterText.getAttribute(
+      attributes.additionalText
+    );
   }
 
   setEventListeners() {
-    this._arrButton.addEventListener('click', this._arrButtonHandler);
-    this._resetButton.addEventListener('click', this._resetButtonHandler);
-    this._executeButton.addEventListener('click', this._executeFiltersHandler);
-    this._inputArea.addEventListener('input', this._inputAreaHandler);
+    this._arrButton.addEventListener("click", this._arrButtonHandler);
+    this._resetButton.addEventListener("click", this._resetButtonHandler);
+    this._executeButton.addEventListener("click", this._executeFiltersHandler);
+    this._inputArea.addEventListener("input", this._inputAreaHandler);
   }
 
   _executeFiltersHandler = () => {

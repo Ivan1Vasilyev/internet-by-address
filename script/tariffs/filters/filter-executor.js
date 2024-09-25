@@ -1,5 +1,5 @@
-import { showElem, hideElem } from '../../utils/helpers.js';
-import { attributes } from '../../utils/css-tools.js';
+import { showElem, hideElem } from "../../utils/helpers.js";
+import { attributes } from "../../utils/css-tools.js";
 
 export default class FilterExecutor {
   constructor(cards, displayShowMore) {
@@ -27,7 +27,10 @@ export default class FilterExecutor {
     this._displayShowMore();
   };
 
-  _checkFilters = (card) => this._filterByProvider(card) && this._filterByType(card) && this._filterBySpeed(card);
+  _checkFilters = (card) =>
+    this._filterByProvider(card) &&
+    this._filterByType(card) &&
+    this._filterBySpeed(card);
 
   _filterByProvider = (card) => {
     if (this.selectedFilters.provider.length) {

@@ -1,18 +1,18 @@
-import { classes, attributes } from '../../../utils/css-tools.js';
-import FilterBase from './filter-base.js';
+import { classes, attributes } from "../../../utils/css-tools.js";
+import FilterBase from "./filter-base.js";
 
 export default class FilterCheckbox extends FilterBase {
   _currentSelectedFilters = new Set();
 
   constructor(filter, selectedFilters, executeFilters) {
     super(filter, selectedFilters, executeFilters);
-    this._inputAll = this._allInputs.find((i) => i.value == 'all');
+    this._inputAll = this._allInputs.find((i) => i.value == "all");
     this._inputs = this._allInputs.filter((i) => i.name != this._inputAll.name);
   }
 
   _inputAreaHandler = (e) => {
     const input = e.target;
-    if (input.tagName != 'INPUT') return;
+    if (input.tagName != "INPUT") return;
 
     if (input == this._inputAll) {
       if (input.checked) {
@@ -38,7 +38,9 @@ export default class FilterCheckbox extends FilterBase {
 
     this._executeButton.removeAttribute(attributes.disabled);
 
-    this._selectedFilters[this._type] = [...this._currentSelectedFilters].map((i) => i.name);
+    this._selectedFilters[this._type] = [...this._currentSelectedFilters].map(
+      (i) => i.name
+    );
 
     if (this._allInputs.some((i) => i.checked)) {
       this._resetButton.removeAttribute(attributes.disabled);
@@ -55,7 +57,7 @@ export default class FilterCheckbox extends FilterBase {
         this._resultText = [...this._currentSelectedFilters]
           .sort((a, b) => this._inputs.indexOf(a) - this._inputs.indexOf(b))
           .map((i) => i.value)
-          .join(', ');
+          .join(", ");
 
         this._filterText.textContent = this._getResultText;
       }
@@ -66,6 +68,7 @@ export default class FilterCheckbox extends FilterBase {
 
   _resetButtonHandler = () => {
     super._resetButtonHandler();
+    this._selectedFilters[this._type] = [];
     this._currentSelectedFilters.clear();
   };
 }

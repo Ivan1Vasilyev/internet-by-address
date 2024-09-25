@@ -1,4 +1,4 @@
-import { attributes, selectors } from '../../../utils/css-tools';
+import { attributes, selectors } from "../../../utils/css-tools.js";
 
 export default class FilterButtons {
   resetHandlers = [];
@@ -12,32 +12,32 @@ export default class FilterButtons {
   }
 
   setEventListeners() {
-    this._resetButton.addEventListener('click', this._resetButtonHandler);
-    this._executeButton.addEventListener('click', this._executeHandler);
+    this._resetButton.addEventListener("click", this._resetButtonHandler);
+    this._executeButton.addEventListener("click", this._executeHandler);
   }
 
-  _executeHandler() {
+  _executeHandler = () => {
     this._executeButton.setAttribute(attributes.disabled, true);
     this._executeFilters();
     this._closePopup();
-  }
+  };
 
-  _resetButtonHandler() {
+  _resetButtonHandler = () => {
     this._executeButton.removeAttribute(attributes.disabled);
     this._resetButton.setAttribute(attributes.disabled, true);
-    this.resetHandlers.forEach((i) => i());
-  }
+    this.resetHandlers.forEach((handler) => handler());
+  };
 
   inputHandler = (state) => {
     this._executeButton.removeAttribute(attributes.disabled);
 
     this._filtersState[state[0]] = !!state[1];
-    if (this._checkState()) {
+    if (this._isAllClear()) {
       this._resetButton.setAttribute(attributes.disabled, true);
     } else {
       this._resetButton.removeAttribute(attributes.disabled);
     }
   };
 
-  _checkState = () => Object.values(this._filtersState).every((i) => i);
+  _isAllClear = () => Object.values(this._filtersState).every((i) => i);
 }

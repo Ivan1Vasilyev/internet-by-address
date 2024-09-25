@@ -1,7 +1,7 @@
-import { selectors, classes, attributes } from '../../../utils/css-tools.js';
+import { selectors, classes, attributes } from "../../../utils/css-tools.js";
 
 export default class PopupFilterBase {
-  _resultText = '';
+  _resultText = "";
 
   get _getResultText() {
     if (this._additionalText) {
@@ -20,19 +20,23 @@ export default class PopupFilterBase {
     this._allInputs = [...filter.querySelectorAll(selectors.input)];
     this._type = filter.getAttribute(attributes.filterExecuteProperty);
     this._defaultText = this._filterText.getAttribute(attributes.defaultText);
-    this._allSelectedText = this._filterText.getAttribute(attributes.allSelectedText);
-    this._additionalText = this._filterText.getAttribute(attributes.additonalText);
+    this._allSelectedText = this._filterText.getAttribute(
+      attributes.allSelectedText
+    );
+    this._additionalText = this._filterText.getAttribute(
+      attributes.additonalText
+    );
   }
 
   setEventListeners() {
-    this._arrButton.addEventListener('click', this._arrButtonHandler);
-    this._inputArea.addEventListener('input', this._inputAreaHandler);
+    this._arrButton.addEventListener("click", this._arrButtonHandler);
+    this._inputArea.addEventListener("input", this._inputAreaHandler);
   }
 
   _resetInputs = () => this._allInputs.forEach((i) => (i.checked = false));
 
   _arrButtonHandler = () => {
-    if (this._filter.classList.toggle(classes.opened)) {
+    if (this._filter.classList.contains(classes.opened)) {
       this._filter.classList.remove(classes.opened);
       this._setFilterText();
     } else {
@@ -40,12 +44,10 @@ export default class PopupFilterBase {
     }
   };
 
-  _inputAreaHandler() {
-    this._selectedFilters[this._type] = this._result;
-    this._exInputHandler();
-  }
+  _inputAreaHandler() {}
 
   resetButtonHandler() {
     this._resetInputs();
+    this._filterText.textContent = this._defaultText;
   }
 }
