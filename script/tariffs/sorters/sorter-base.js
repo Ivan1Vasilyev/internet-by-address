@@ -1,6 +1,6 @@
-import { selectors, classes, attributes } from '../utils/css-tools.js';
+import { selectors, classes, attributes } from '../../utils/css-tools.js';
 
-export default class Sorter {
+export default class SorterBase {
   constructor(sortContainer, cards, container, displayShowMore) {
     this._sortContainer = sortContainer;
     this._cards = cards;
@@ -8,7 +8,9 @@ export default class Sorter {
     this._displayShowMore = displayShowMore;
     this._arrButton = this._sortContainer.querySelector(selectors.arrButton);
     this._inputArea = this._sortContainer.querySelector(selectors.inputArea);
-    this._sortText = this._sortContainer.querySelector(selectors.filterText);
+    this._headElem = this._sortContainer.querySelector(selectors.filterText);
+    this._inputs = [...this._inputArea.querySelectorAll('input')];
+    this._selectedInput = this._inputs.find((i) => i.checked);
   }
 
   setEventListeners = () => {
@@ -18,13 +20,15 @@ export default class Sorter {
 
   _arrButtonHandler = () => this._sortContainer.classList.toggle(classes.opened);
 
-  _inputAreaHandler = (e) => {
-    const input = e.target;
-    if (input.tagName != 'INPUT') return;
+  _inputAreaHandler(e) {
+    if (e.target.tagName != 'INPUT') return;
+    this._selectedInput = e.target;
+  }
 
-    this._sortText.textContent = input.closest(selectors.item).querySelector(selectors.text).textContent;
-    this._sortCards(input.value);
-  };
+  executeSort() {
+    this._headElem.textContent = this._selectedInput.closest(selectors.item).querySelector(selectors.text).textContent;
+    this._sortCards(this._selectedInput.value);
+  }
 
   _sortCards = (sortType) => {
     const sortedCards = this._cards.sort(this._getSortMethods(sortType));

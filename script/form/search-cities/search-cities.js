@@ -5,7 +5,6 @@ import { hideElem, showElem } from '../../utils/helpers.js';
 import drawMatchesService from '../../services/draw-mathes-service.js';
 
 export default class SearchCities extends FormBase {
-  _isInitCompleted = false;
   _cities = [];
 
   constructor(citiesElem) {

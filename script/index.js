@@ -1,38 +1,39 @@
-import FilterExecutor from "./tariffs/filters/filter-executor.js";
-import FilterCheckbox from "./tariffs/filters/desc-filters/filter-checkbox.js";
-import CardRangeInput from "./tariffs/range-input.js";
-import ShowMore from "./tariffs/show-more.js";
-import Sorter from "./tariffs/sorter.js";
-import TextInput from "./inputs/text-input.js";
-import PhoneInput from "./inputs/phone-input.js";
-import ResizeListener from "./common/resize-listener.js";
-import { attributes, selectors } from "./utils/css-tools.js";
-import FilterSpeed from "./tariffs/filters/desc-filters/filter-speed.js";
-import CardIcon from "./tariffs/card-icon.js";
-import OrderForm from "./form/order-form/order-form.js";
-import PopupWithForm from "./popup/popup-with-form.js";
-import PopupWithCities from "./popup/popup-with-cities.js";
-import SearchCities from "./form/search-cities/search-cities.js";
-import PopupWithFilters from "./popup/popup-with-filters.js";
-import PopupFilterCheckbox from "./tariffs/filters/popup-filters/popup-filter-checkbox.js";
-import FilterButtons from "./tariffs/filters/popup-filters/filter-buttons.js";
+import MainForm from './form/main-form/main-form.js';
+import FilterExecutor from './tariffs/filters/filter-executor.js';
+import FilterCheckbox from './tariffs/filters/filter-checkbox.js';
+import FilterSpeed from './tariffs/filters/filter-speed.js';
+import CardRangeInput from './tariffs/range-input.js';
+import ShowMore from './tariffs/show-more.js';
+import SorterDesc from './tariffs/sorters/sorter-desc.js';
+import TextInput from './inputs/text-input.js';
+import PhoneInput from './inputs/phone-input.js';
+import ResizeListener from './common/resize-listener.js';
+import { attributes, selectors } from './utils/css-tools.js';
+import CardIcon from './tariffs/card-icon.js';
+import OrderForm from './form/order-form/order-form.js';
+import PopupWithForm from './popup/popup-with-form.js';
+import SearchCities from './form/search-cities/search-cities.js';
+import FilterButtons from './tariffs/filters/filter-buttons.js';
+import Popup from './popup/popup.js';
+import SorterPopup from './tariffs/sorters/sorter-popup.js';
+import CharFilter from './form/search-address/char-filter.js';
 
 const resizeHandlers = [];
 const eventListeners = [];
+
+const mainFormElem = document.querySelector(selectors.mainForm);
+eventListeners.push(new MainForm(mainFormElem));
+
+mainFormElem.querySelectorAll(selectors.textInput).forEach((input) => {
+  eventListeners.push(new TextInput(input));
+});
 
 document.querySelectorAll(selectors.orderForm).forEach((formElem) => {
   const form = new OrderForm(formElem);
   eventListeners.push(form);
 
-  eventListeners.push(
-    new PhoneInput(
-      formElem.querySelector(selectors.phoneInput),
-      form.disableSubmit
-    )
-  );
-  eventListeners.push(
-    new TextInput(formElem.querySelector(selectors.textInput))
-  );
+  eventListeners.push(new PhoneInput(formElem.querySelector(selectors.phoneInput), form.disableSubmit));
+  eventListeners.push(new TextInput(formElem.querySelector(selectors.textInput)));
 
   const popup = formElem.closest(selectors.popup);
   if (popup) {
@@ -43,86 +44,78 @@ document.querySelectorAll(selectors.orderForm).forEach((formElem) => {
   }
 });
 
-document.querySelectorAll("[tariff-cards-container]").forEach((container) => {
-  const popup = new PopupWithFilters(
-    container.querySelector(selectors.popupFilters)
-  );
-  container
-    .querySelector(selectors.showFilterContainer)
-    .addEventListener("click", popup.open);
-  eventListeners.push(popup);
+document.querySelectorAll('[tariff-cards-container]').forEach((container) => {
+  const popupWithFilters = new Popup(container.querySelector(selectors.popupFilters));
+  container.querySelector(selectors.showFilterContainer).addEventListener('click', popupWithFilters.open);
+  eventListeners.push(popupWithFilters);
 
-  const showMoreContainer = container.querySelector(
-    selectors.showMoreContainer
-  );
   const cards = [...container.querySelectorAll(selectors.card)];
+  const showMoreContainer = container.querySelector(selectors.showMoreContainer);
 
   const showMore = new ShowMore(showMoreContainer, cards, container);
   showMore.initShowMore(window.innerWidth);
   resizeHandlers.push(showMore.resizeHandler);
 
-  const filterExecutor = new FilterExecutor(
-    cards,
-    showMore.displayShowMoreButton
-  );
+  const filterExecutor = new FilterExecutor(cards, showMore.displayShowMoreButton);
 
   container.querySelectorAll(selectors.filters).forEach((item) => {
+    const filterButtons = new FilterButtons(item);
+    eventListeners.push(filterButtons);
+    filterButtons.exExecuteHandlers.push(filterExecutor.executeFilters);
+
+    let filter;
     switch (item.getAttribute(attributes.filterType)) {
-      case "checkbox":
-        eventListeners.push(
-          new FilterCheckbox(
-            item,
-            filterExecutor.selectedFilters,
-            filterExecutor.executeFilters
-          )
-        );
+      case 'checkbox':
+        filter = new FilterCheckbox(item, filterExecutor.selectedFilters, filterButtons.inputHandler);
         break;
-      case "speed":
-        eventListeners.push(
-          new FilterSpeed(
-            item,
-            filterExecutor.selectedFilters,
-            filterExecutor.executeFilters
-          )
-        );
+      case 'speed':
+        filter = new FilterSpeed(item, filterExecutor.selectedFilters, filterButtons.inputHandler);
         break;
     }
+
+    filterButtons.exResetHandlers.push(filter.resetButtonHandler);
+    filterButtons.exExecuteHandlers.push(filter.executeFiltersHandler);
+    eventListeners.push(filter);
   });
 
   container.querySelectorAll(selectors.sortContainer).forEach((item) => {
-    eventListeners.push(
-      new Sorter(item, cards, container, showMore.displayShowMoreButton)
-    );
+    eventListeners.push(new SorterDesc(item, cards, container, showMore.displayShowMoreButton));
   });
 
-  const filterButtonsInPopup = new FilterButtons(
-    container.querySelector(selectors.popupFilters),
-    filterExecutor.executeFilters,
-    popup.close
-  );
+  const filterButtonsInPopup = new FilterButtons(container.querySelector(selectors.popupFilters));
+
+  filterButtonsInPopup.exExecuteHandlers.push(filterExecutor.executeFilters);
 
   eventListeners.push(filterButtonsInPopup);
   container.querySelectorAll(selectors.filtersPopup).forEach((item) => {
+    let filter;
     switch (item.getAttribute(attributes.filterType)) {
-      case "checkbox":
-        const filter = new PopupFilterCheckbox(
-          item,
-          filterExecutor.selectedFilters,
-          filterButtonsInPopup.inputHandler
-        );
-
-        filterButtonsInPopup.resetHandlers.push(filter.resetButtonHandler);
-        eventListeners.push(filter);
+      case 'checkbox':
+        filter = new FilterCheckbox(item, filterExecutor.selectedFilters, filterButtonsInPopup.inputHandler);
         break;
-      // case 'speed':
-      //   eventListeners.push(new FilterSpeed(item, filterExecutor.selectedFilters, filterExecutor.executeFilters));
-      //   break;
+      case 'speed':
+        filter = new FilterSpeed(item, filterExecutor.selectedFilters, filterButtonsInPopup.inputHandler);
+        break;
     }
+
+    filterButtonsInPopup.exResetHandlers.push(filter.resetButtonHandler);
+    filterButtonsInPopup.exExecuteHandlers.push(filter.executeFiltersHandler);
+    eventListeners.push(filter);
   });
 
-  // container.querySelectorAll(selectors.sortPopupContainer).forEach((item) => {
-  //   eventListeners.push(new Sorter(item, cards, container, showMore.displayShowMoreButton));
-  // });
+  container.querySelectorAll(selectors.sortPopupContainer).forEach((item) => {
+    const sorter = new SorterPopup(
+      item,
+      cards,
+      container,
+      showMore.displayShowMoreButton,
+      filterButtonsInPopup.inputHandler
+    );
+
+    eventListeners.push(sorter);
+    filterButtonsInPopup.exResetHandlers.push(sorter.resetHandler);
+    filterButtonsInPopup.exExecuteHandlers.push(sorter.executeSort);
+  });
 
   cards.forEach((card) => {
     eventListeners.push(new CardIcon(card));
@@ -134,9 +127,9 @@ document.querySelectorAll("[tariff-cards-container]").forEach((container) => {
   });
 });
 
-const popupWithCities = new PopupWithCities(
-  document.querySelector(selectors.popupCities)
-);
+eventListeners.push(new CharFilter(document.querySelector('.search-form')));
+
+const popupWithCities = new Popup(document.querySelector(selectors.popupCities));
 
 eventListeners.push(popupWithCities);
 
@@ -153,7 +146,7 @@ eventListeners.push(
   )
 );
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   new ResizeListener(window, resizeHandlers).setResizeListeners();
   eventListeners.forEach((listener) => listener.setEventListeners());
 });

@@ -1,8 +1,6 @@
 import { hideElem, showElem } from '../../utils/helpers.js';
 import { selectors } from '../../utils/css-tools.js';
-import PhoneInput from '../../inputs/phone-input.js';
 import FormBase from '../form-base.js';
-import TextInput from '../../inputs/text-input.js';
 
 export default class OrderForm extends FormBase {
   constructor(formElem) {
@@ -32,7 +30,7 @@ export default class OrderForm extends FormBase {
     console.log(this._getData());
 
     hideElem(this._defaultElem);
-    // showElem(this._successElem);
+    showElem(this._successElem);
     showElem(this._errorElem);
   };
 }

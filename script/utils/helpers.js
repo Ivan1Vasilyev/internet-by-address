@@ -1,11 +1,11 @@
-import { selectors } from './css-tools.js';
+import { classes } from './css-tools.js';
 
 export function hideElem(elem) {
-  elem.classList.add(selectors.hidden);
+  elem.classList.add(classes.hidden);
 }
 
 export function showElem(elem) {
-  elem.classList.remove(selectors.hidden);
+  elem.classList.remove(classes.hidden);
 }
 
 export function getWordEnding(number, one, two, many) {
@@ -22,10 +22,10 @@ export function isMobile() {
 export function debounce(callback, duration) {
   let isCooldown = false;
 
-  return () => {
+  return (...args) => {
     if (isCooldown) return;
 
-    callback();
+    callback(...args);
 
     isCooldown = true;
     setTimeout(() => (isCooldown = false), duration);

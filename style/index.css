@@ -87,6 +87,7 @@ p {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 ul,
@@ -1194,6 +1195,11 @@ input[type='range']::-ms-thumb {
   color: #fff;
 }
 
+.search-alphabet .item:has(:checked) {
+  background: var(--Blue);
+  color: #fff;
+}
+
 .search-alphabet .item.active:hover {
   background: var(--Blue-hover);
 }
@@ -1217,23 +1223,6 @@ input[type='range']::-ms-thumb {
     margin-right: 20px;
   }
 }
-
-/* .search-result::-webkit-scrollbar {
-  width: 5px;
-}
-
-.search-result::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.search-result::-webkit-scrollbar-thumb {
-  background: var(--Blue);
-  cursor: pointer;
-}
-
-.search-result::-webkit-scrollbar-thumb:hover {
-  background: var(--Blue-hover);
-} */
 
 .char-section {
   display: grid;
@@ -1274,6 +1263,11 @@ input[type='range']::-ms-thumb {
 
 .char-result .result-item {
   font-size: 20px;
+  transition: color 0.3s;
+}
+
+.char-result .result-item:hover {
+  color: var(--Blue);
 }
 
 /*  ===========================================================     question form    ===========================================================  */
@@ -1823,7 +1817,6 @@ input[type='range']::-ms-thumb {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: calc(100vh - 80px);
 }
 
 .popup.filters .filters-container {
@@ -1835,7 +1828,12 @@ input[type='range']::-ms-thumb {
 
 .popup.filters .filter-area {
   flex-direction: column;
+  justify-content: start;
   margin: 0;
+  overflow-y: auto;
+  height: calc(100vh - 216px);
+  margin-left: -5px;
+  padding-left: 5px;
 }
 
 .popup.filters .title-popup {
@@ -1851,6 +1849,7 @@ input[type='range']::-ms-thumb {
 .popup.filters .filter-content {
   position: initial;
   margin-top: 5px;
+  gap: 0;
 }
 
 @media (max-width: 768px) {

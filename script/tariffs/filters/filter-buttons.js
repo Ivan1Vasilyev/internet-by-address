@@ -1,37 +1,35 @@
-import { attributes, selectors } from "../../../utils/css-tools.js";
+import { attributes, selectors } from '../../utils/css-tools.js';
 
 export default class FilterButtons {
-  resetHandlers = [];
+  exResetHandlers = [];
+  exExecuteHandlers = [];
   _filtersState = {};
 
-  constructor(container, executeFilters, closePopup) {
-    this._executeFilters = executeFilters;
+  constructor(container) {
     this._resetButton = container.querySelector(selectors.reset);
     this._executeButton = container.querySelector(selectors.executeButton);
-    this._closePopup = closePopup;
   }
 
   setEventListeners() {
-    this._resetButton.addEventListener("click", this._resetButtonHandler);
-    this._executeButton.addEventListener("click", this._executeHandler);
+    this._resetButton.addEventListener('click', this._resetButtonHandler);
+    this._executeButton.addEventListener('click', this._executeHandler);
   }
 
   _executeHandler = () => {
     this._executeButton.setAttribute(attributes.disabled, true);
-    this._executeFilters();
-    this._closePopup();
+    this.exExecuteHandlers.forEach((handler) => handler());
   };
 
   _resetButtonHandler = () => {
     this._executeButton.removeAttribute(attributes.disabled);
     this._resetButton.setAttribute(attributes.disabled, true);
-    this.resetHandlers.forEach((handler) => handler());
+    this.exResetHandlers.forEach((handler) => handler());
   };
 
-  inputHandler = (state) => {
+  inputHandler = ({ key, value }) => {
     this._executeButton.removeAttribute(attributes.disabled);
 
-    this._filtersState[state[0]] = !!state[1];
+    this._filtersState[key] = !!value;
     if (this._isAllClear()) {
       this._resetButton.setAttribute(attributes.disabled, true);
     } else {

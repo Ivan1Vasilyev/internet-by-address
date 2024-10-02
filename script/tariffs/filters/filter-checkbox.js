@@ -1,17 +1,17 @@
-import PopupFilterBase from "./popup-filter-base.js";
+import FilterBase from './filter-base.js';
 
-export default class PopupFilterCheckbox extends PopupFilterBase {
+export default class FilterCheckbox extends FilterBase {
   _currentSelectedFilters = new Set();
 
   constructor(filter, selectedFilters, inputHandler) {
     super(filter, selectedFilters, inputHandler);
-    this._inputAll = this._allInputs.find((i) => i.value == "all");
-    this._inputs = this._allInputs.filter((i) => i.name != this._inputAll.name);
+    this._inputAll = this._allInputs.find((i) => i.value == 'all');
+    this._inputs = this._allInputs.filter((i) => i != this._inputAll);
   }
 
   _inputAreaHandler = (e) => {
     const input = e.target;
-    if (input.tagName != "INPUT") return;
+    if (input.tagName != 'INPUT') return;
 
     if (input == this._inputAll) {
       if (input.checked) {
@@ -35,11 +35,9 @@ export default class PopupFilterCheckbox extends PopupFilterBase {
       }
     }
 
-    this._selectedFilters[this._type] = [...this._currentSelectedFilters].map(
-      (i) => i.name
-    );
+    this._selectedFilters[this._type] = [...this._currentSelectedFilters].map((i) => i.name);
 
-    this._exInputHandler([this._type, !this._allInputs.some((i) => i.checked)]);
+    this._exInputHandler({ key: this._type, value: !this._allInputs.some((i) => i.checked) });
   };
 
   _setFilterText = () => {
@@ -47,12 +45,10 @@ export default class PopupFilterCheckbox extends PopupFilterBase {
       if (this._currentSelectedFilters.size == this._inputs.length) {
         this._filterText.textContent = this._allSelectedText;
       } else {
-        this._resultText = [...this._currentSelectedFilters]
+        this._filterText.textContent = [...this._currentSelectedFilters]
           .sort((a, b) => this._inputs.indexOf(a) - this._inputs.indexOf(b))
           .map((i) => i.value)
-          .join(", ");
-
-        this._filterText.textContent = this._getResultText;
+          .join(', ');
       }
     } else {
       this._filterText.textContent = this._defaultText;
@@ -61,7 +57,7 @@ export default class PopupFilterCheckbox extends PopupFilterBase {
 
   resetButtonHandler = () => {
     this._selectedFilters[this._type] = [];
-    this._currentSelectedFilters.clear();
     super.resetButtonHandler();
+    this._currentSelectedFilters.clear();
   };
 }

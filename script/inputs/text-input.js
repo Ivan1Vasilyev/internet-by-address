@@ -3,8 +3,8 @@ import { classes, selectors } from '../utils/css-tools.js';
 export default class TextInput {
   constructor(container, resetHandler, inputHandler) {
     this._classList = container.classList;
-    this._externalResetHandler = resetHandler;
-    this._externalInputHandler = inputHandler;
+    this._exResetHandler = resetHandler;
+    this._exInputHandler = inputHandler;
     this._input = container.querySelector(selectors.input);
     this._error = container.querySelector(selectors.error);
     this._reset = container.querySelector(selectors.reset);
@@ -28,8 +28,8 @@ export default class TextInput {
   _resetHandler = (e) => {
     e.stopPropagation();
 
-    if (this._externalResetHandler) {
-      this._externalResetHandler();
+    if (this._exResetHandler) {
+      this._exResetHandler();
     }
 
     this._input.value = '';
@@ -43,8 +43,8 @@ export default class TextInput {
       this._classList.remove(classes.filling);
     }
 
-    if (this._externalInputHandler) {
-      this._externalInputHandler(e);
+    if (this._exInputHandler) {
+      this._exInputHandler(e);
     }
   }
 }

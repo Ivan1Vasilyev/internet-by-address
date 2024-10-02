@@ -1,13 +1,13 @@
-import { classes, attributes } from '../../../utils/css-tools.js';
 import FilterBase from './filter-base.js';
 
 export default class FilterSpeed extends FilterBase {
-  _under = 'до';
-  _higher = 'выше';
+  _underPrefix = 'до ';
+  _higherPrefix = 'выше ';
+  _postfix = ' Мбит/сек';
   _isAll = false;
 
-  constructor(filter, selectedFilters, executeFilters) {
-    super(filter, selectedFilters, executeFilters);
+  constructor(filter, selectedFilters, inputHandler) {
+    super(filter, selectedFilters, inputHandler);
   }
 
   _inputAreaHandler = (e) => {
@@ -25,8 +25,7 @@ export default class FilterSpeed extends FilterBase {
 
     this._selectedFilters[this._type] = { value, higher };
 
-    this._executeButton.removeAttribute(attributes.disabled);
-    this._resetButton.removeAttribute(attributes.disabled);
+    this._exInputHandler({ key: this._type, value: false });
   };
 
   _setFilterText = () => {
@@ -35,16 +34,15 @@ export default class FilterSpeed extends FilterBase {
       if (this._isAll) {
         this._filterText.textContent = this._allSelectedText;
       } else {
-        this._resultText = `${higher ? higher : this._under} ${value}`;
-        this._filterText.textContent = this._getResultText;
+        this._filterText.textContent = `${higher ? this._higherPrefix : this._underPrefix}${value}${this._postfix}`;
       }
     } else {
       this._filterText.textContent = this._defaultText;
     }
   };
 
-  _resetButtonHandler = () => {
-    super._resetButtonHandler();
+  resetButtonHandler = () => {
     this._selectedFilters[this._type] = {};
+    super.resetButtonHandler();
   };
 }

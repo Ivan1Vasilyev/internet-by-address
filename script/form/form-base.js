@@ -1,6 +1,3 @@
-import TextInput from '../inputs/text-input.js';
-import { selectors } from '../utils/css-tools.js';
-
 export default class FormBase {
   constructor(formElem) {
     this._form = formElem.querySelector('form');
