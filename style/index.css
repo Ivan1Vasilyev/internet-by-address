@@ -1833,7 +1833,7 @@ input[type='range']::-ms-thumb {
   overflow-y: auto;
   height: calc(100vh - 216px);
   margin-left: -5px;
-  padding-left: 5px;
+  padding: 0 0 20px 5px;
 }
 
 .popup.filters .title-popup {

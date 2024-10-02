@@ -18,8 +18,8 @@ import Popup from './popup/popup.js';
 import SorterPopup from './tariffs/sorters/sorter-popup.js';
 import CharFilter from './form/search-address/char-filter.js';
 
-const resizeHandlers = [];
-const eventListeners = [];
+let resizeHandlers = [];
+let eventListeners = [];
 
 const mainFormElem = document.querySelector(selectors.mainForm);
 eventListeners.push(new MainForm(mainFormElem));
@@ -149,4 +149,6 @@ eventListeners.push(
 document.addEventListener('DOMContentLoaded', () => {
   new ResizeListener(window, resizeHandlers).setResizeListeners();
   eventListeners.forEach((listener) => listener.setEventListeners());
+
+  resizeHandlers = eventListeners = null;
 });
