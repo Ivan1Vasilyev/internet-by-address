@@ -1,22 +1,22 @@
-import MainForm from './form/main-form/main-form.js';
+import MainForm from './form/main-form.js';
 import FilterExecutor from './tariffs/filters/filter-executor.js';
 import FilterCheckbox from './tariffs/filters/filter-checkbox.js';
 import FilterSpeed from './tariffs/filters/filter-speed.js';
 import CardRangeInput from './tariffs/range-input.js';
 import ShowMore from './tariffs/show-more.js';
 import SorterDesc from './tariffs/sorters/sorter-desc.js';
-import TextInput from './inputs/text-input.js';
-import PhoneInput from './inputs/phone-input.js';
+import TextInput from './common/inputs/text-input.js';
+import PhoneInput from './common/inputs/phone-input.js';
 import ResizeListener from './common/resize-listener.js';
 import { attributes, selectors } from './utils/css-tools.js';
 import CardIcon from './tariffs/card-icon.js';
-import OrderForm from './form/order-form/order-form.js';
+import OrderForm from './form/order-form.js';
 import PopupWithForm from './popup/popup-with-form.js';
-import SearchCities from './form/search-cities/search-cities.js';
+import SearchCities from './search/search-cities/search-cities.js';
 import FilterButtons from './tariffs/filters/filter-buttons.js';
 import Popup from './popup/popup.js';
 import SorterPopup from './tariffs/sorters/sorter-popup.js';
-import CharFilter from './form/search-address/char-filter.js';
+import CharFilter from './search/search-address/char-filter.js';
 
 let resizeHandlers = [];
 let eventListeners = [];
@@ -137,12 +137,13 @@ window.openCitiesPopup = popupWithCities.open;
 
 const searchCitiesElem = document.querySelector(selectors.popupCities);
 const searchCities = new SearchCities(searchCitiesElem);
-eventListeners.push(searchCities);
+
 eventListeners.push(
   new TextInput(
     searchCitiesElem.querySelector(selectors.textInput),
     searchCities.resetTextInputHandler,
-    searchCities.inputHandler
+    searchCities.inputHandler,
+    searchCities.focusHandler
   )
 );
 

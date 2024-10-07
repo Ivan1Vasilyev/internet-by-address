@@ -1,10 +1,11 @@
-import { classes, selectors } from '../utils/css-tools.js';
+import { classes, selectors } from '../../utils/css-tools.js';
 
 export default class TextInput {
-  constructor(container, resetHandler, inputHandler) {
+  constructor(container, resetHandler, inputHandler, focusHandler) {
     this._classList = container.classList;
     this._exResetHandler = resetHandler;
     this._exInputHandler = inputHandler;
+    this._exFocusHandler = focusHandler;
     this._input = container.querySelector(selectors.input);
     this._error = container.querySelector(selectors.error);
     this._reset = container.querySelector(selectors.reset);
@@ -17,7 +18,12 @@ export default class TextInput {
     this._reset.addEventListener('click', this._resetHandler);
   };
 
-  _focusHandler = () => this._classList.add(classes.focus);
+  _focusHandler = () => {
+    this._classList.add(classes.focus);
+    if (this._exFocusHandler) {
+      this._exFocusHandler();
+    }
+  };
 
   _blurHandler = (e) => {
     if (!e.target.value) {

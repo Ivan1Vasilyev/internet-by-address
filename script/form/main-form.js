@@ -1,4 +1,4 @@
-import FormBase from '../form-base.js';
+import FormBase from './form-base.js';
 
 export default class MainForm extends FormBase {
   constructor(formElem) {

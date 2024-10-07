@@ -45,6 +45,7 @@ export const selectors = {
   rangeInput: 'input[type="range"]',
   resetButton: '.reset',
   reset: '.reset',
+  resultItem: '.result-item',
   scrollBlock: '.scroll-block',
   showFilterContainer: '.show-filter-container',
   showMoreButton: 'button.show-more',

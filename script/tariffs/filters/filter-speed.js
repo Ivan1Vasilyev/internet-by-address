@@ -1,9 +1,6 @@
 import FilterBase from './filter-base.js';
 
 export default class FilterSpeed extends FilterBase {
-  _underPrefix = 'до ';
-  _higherPrefix = 'выше ';
-  _postfix = ' Мбит/сек';
   _isAll = false;
 
   constructor(filter, selectedFilters, inputHandler) {
@@ -12,7 +9,6 @@ export default class FilterSpeed extends FilterBase {
 
   _inputAreaHandler = (e) => {
     const input = e.target;
-    if (input.tagName != 'INPUT') return;
 
     const values = input.value.split('+');
     const speedValue = parseInt(values[0], 10);
@@ -34,7 +30,7 @@ export default class FilterSpeed extends FilterBase {
       if (this._isAll) {
         this._filterText.textContent = this._allSelectedText;
       } else {
-        this._filterText.textContent = `${higher ? this._higherPrefix : this._underPrefix}${value}${this._postfix}`;
+        this._filterText.textContent = `${higher ? 'до' : 'выше'} ${value} ${'Мбит/сек'}`;
       }
     } else {
       this._filterText.textContent = this._defaultText;

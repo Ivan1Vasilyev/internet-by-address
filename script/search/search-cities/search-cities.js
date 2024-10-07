@@ -1,21 +1,15 @@
 import { attributes, classes, selectors } from '../../utils/css-tools.js';
 import { keyboardDict } from '../../utils/constants.js';
-import FormBase from '../form-base.js';
 import { hideElem, showElem } from '../../utils/helpers.js';
 import drawMatchesService from '../../services/draw-mathes-service.js';
 
-export default class SearchCities extends FormBase {
+export default class SearchCities {
   _cities = [];
+  _isFocusHandlerFired = false;
 
   constructor(citiesElem) {
-    super(citiesElem);
     this._cityContainer = citiesElem.querySelector(selectors.citiesContainer);
   }
-
-  setEventListeners = () => {
-    super.setEventListeners();
-    this._form.addEventListener('focus', this._focusHandler, { once: true, capture: true });
-  };
 
   inputHandler = (e) => {
     const { value } = e.target;
@@ -64,7 +58,9 @@ export default class SearchCities extends FormBase {
     });
   };
 
-  _focusHandler = () => {
+  focusHandler = () => {
+    if (this._isFocusHandlerFired) return;
+    this._isFocusHandlerFired = true;
     this._cities = [...this._cityContainer.querySelectorAll(selectors.cityListLink)];
   };
 }

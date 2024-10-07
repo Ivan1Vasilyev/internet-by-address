@@ -22,7 +22,6 @@ export default class CharFilter {
 
   _inputHandler = (e) => {
     const input = e.target;
-    if (input.tagName != 'INPUT') return;
 
     if (input == this._inputAll) {
       this._inputs.forEach((i) => (i.checked = false));

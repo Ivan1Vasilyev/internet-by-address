@@ -11,7 +11,6 @@ export default class FilterCheckbox extends FilterBase {
 
   _inputAreaHandler = (e) => {
     const input = e.target;
-    if (input.tagName != 'INPUT') return;
 
     if (input == this._inputAll) {
       if (input.checked) {

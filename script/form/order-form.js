@@ -1,6 +1,6 @@
-import { hideElem, showElem } from '../../utils/helpers.js';
-import { selectors } from '../../utils/css-tools.js';
-import FormBase from '../form-base.js';
+import { hideElem, showElem } from '../utils/helpers.js';
+import { selectors } from '../utils/css-tools.js';
+import FormBase from './form-base.js';
 
 export default class OrderForm extends FormBase {
   constructor(formElem) {
