@@ -31,7 +31,7 @@ export default class TextInput {
     }
   };
 
-  _resetHandler = (e) => {
+  _resetHandler(e) {
     e.stopPropagation();
 
     if (this._exResetHandler) {
@@ -40,7 +40,7 @@ export default class TextInput {
 
     this._input.value = '';
     this._classList.remove(classes.filling);
-  };
+  }
 
   _inputHandler(e) {
     if (e.target.value) {

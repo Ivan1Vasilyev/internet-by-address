@@ -47,14 +47,14 @@ export default class CardRangeInput {
     this._speedElem.textContent = this._speeds[value].textContent;
     this._speeds[value].classList.add(classes.active);
 
-    this._setRangeInput();
+    this._setRangeBackground();
   };
 
   setEventListeners = () => {
     this._input.addEventListener('input', this.inputHandler);
   };
 
-  _setRangeInput = () => {
+  _setRangeBackground = () => {
     const { min, max, value } = this._input;
     const percentage = ((value - min) * 100) / (max - min);
 
