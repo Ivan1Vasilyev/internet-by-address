@@ -34,11 +34,9 @@ export default class PhoneInput extends TextInput {
 
     const caretPosition = input.selectionEnd;
     const { inputType } = e;
-    console.log(inputType);
-    console.log(preventDeletionIndexes);
-    console.log(caretPosition);
+    const isDeletion = inputType?.startsWith('delete');
 
-    if (inputType?.startsWith('delete') && preventDeletionIndexes.includes(caretPosition)) {
+    if (isDeletion && preventDeletionIndexes.includes(caretPosition)) {
       if (value.length < templateStart.length) {
         this._previousValue = '';
       }
@@ -51,10 +49,13 @@ export default class PhoneInput extends TextInput {
       return;
     }
 
-    const expectedBeginning = value.match(/^7$|^\+7$|^8$/);
+    if (value == '7' || value == '+7') {
+      input.value = `+7 (`;
+      return;
+    }
 
-    if (expectedBeginning) {
-      input.value = `${expectedBeginning[0]} (`;
+    if (value == '8') {
+      input.value = `8 (`;
       return;
     }
 
@@ -62,6 +63,11 @@ export default class PhoneInput extends TextInput {
       .replace(/^\+7|^8/, '')
       .replace(/\D/g, '')
       .slice(0, 10);
+
+    if (!digits && input.value.length >= templateStart.length && !isDeletion) {
+      input.value = input.value.slice(0, -1);
+      return;
+    }
 
     let result = '';
 

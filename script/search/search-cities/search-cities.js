@@ -1,7 +1,7 @@
 import { attributes, classes, selectors } from '../../utils/css-tools.js';
 import { keyboardDict } from '../../utils/constants.js';
 import { hideElem, showElem } from '../../utils/helpers.js';
-import drawMatchesService from '../../services/draw-mathes-service.js';
+import drawMatchesService from '../../services/draw-matches-service.js';
 
 export default class SearchCities {
   _cities = [];

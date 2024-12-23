@@ -11,7 +11,7 @@ export default class PopupWithForm extends Popup {
 
   setEventListeners = () => {
     super.setEventListeners();
-    this._thanksButton.addEventListener('click', () => this.close());
+    this._thanksButton.addEventListener('click', this.close);
   };
 
   close() {

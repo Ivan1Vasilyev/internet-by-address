@@ -15,7 +15,7 @@ export default class TextInput {
     this._input.addEventListener('focus', this._focusHandler);
     this._input.addEventListener('blur', this._blurHandler);
     this._input.addEventListener('input', this._inputHandler.bind(this));
-    this._reset.addEventListener('click', this._resetHandler);
+    this._reset.addEventListener('click', this._resetHandler.bind(this));
   };
 
   _focusHandler = () => {

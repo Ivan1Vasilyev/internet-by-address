@@ -31,6 +31,6 @@ export default class OrderForm extends FormBase {
 
     hideElem(this._defaultElem);
     showElem(this._successElem);
-    showElem(this._errorElem);
+    // showElem(this._errorElem);
   };
 }
