@@ -597,7 +597,7 @@ header {
 }
 
 .show-filter-container {
-  display: flex;
+  display: inline-flex;
   gap: 5px;
   margin-top: 20px;
   align-items: center;
@@ -1190,18 +1190,14 @@ input[type='range']::-ms-thumb {
   background-color: var(--Gray-400);
 }
 
-.search-alphabet .item.active {
-  background: var(--Blue);
-  color: #fff;
-}
-
 .search-alphabet .item:has(:checked) {
   background: var(--Blue);
   color: #fff;
 }
 
-.search-alphabet .item.active:hover {
-  background: var(--Blue-hover);
+.filling .search-alphabet .item:has(:checked) {
+  background: var(--Gray-100);
+  color: initial;
 }
 
 .search-alphabet .item input[type='checkbox'] {
@@ -1209,7 +1205,7 @@ input[type='range']::-ms-thumb {
   opacity: 0;
 }
 
-.search-result {
+.search-streets {
   height: 376px;
   margin-top: 40px;
   display: flex;
@@ -1217,16 +1213,48 @@ input[type='range']::-ms-thumb {
   gap: 25px;
 }
 
+.search-result {
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 15px;
+  font-size: 20px;
+}
+
+.filling .search-result {
+  display: grid;
+}
+
+@media (max-width: 992px) {
+  .search-result {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .search-result {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .search-streets {
     padding: 25px 0 0 20px;
     margin-right: 20px;
+    margin-top: 25px;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 534px) {
+  .search-result {
+    grid-template-columns: 1fr;
   }
 }
 
 .char-section {
   display: grid;
   grid-template-columns: 1fr 3fr;
+}
+
+.filling .char-section {
+  display: none;
 }
 
 @media (max-width: 600px) {
@@ -1862,6 +1890,48 @@ input[type='range']::-ms-thumb {
     animation: mobPopupUp 0.5s ease-out;
   }
 }
+
+/*  ===========================================================     404    ===========================================================  */
+
+.four04 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.four04-image {
+  margin-top: 50px;
+  background: no-repeat url('../images/Vector.png') 120px 45px / 438px 316px;
+  padding: 0 70px 30px;
+  width: 580px;
+}
+
+.four04-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 605px;
+}
+
+.four04-text .subtitle {
+  color: var(--Gray-600);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .four04-image {
+    margin-top: 100px;
+    background: no-repeat url('../images/Vector.png') 60px 20px / 309px 223px;
+    object-position: 20px 0;
+    padding: 0 20px 20px 0;
+    width: 320px;
+  }
+}
+
 /*  ===========================================================     hide show    ===========================================================  */
 
 .hidden {

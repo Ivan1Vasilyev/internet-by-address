@@ -17,16 +17,19 @@ import FilterButtons from './tariffs/filters/filter-buttons.js';
 import Popup from './popup/popup.js';
 import SorterPopup from './tariffs/sorters/sorter-popup.js';
 import CharFilter from './search/search-address/char-filter.js';
+import SearchAddress from './search/search-address/search-address.js';
 
 let resizeHandlers = [];
 let eventListeners = [];
 
 const mainFormElem = document.querySelector(selectors.mainForm);
-eventListeners.push(new MainForm(mainFormElem));
+if (mainFormElem) {
+  eventListeners.push(new MainForm(mainFormElem));
 
-mainFormElem.querySelectorAll(selectors.textInput).forEach((input) => {
-  eventListeners.push(new TextInput(input));
-});
+  mainFormElem.querySelectorAll(selectors.textInput).forEach((input) => {
+    eventListeners.push(new TextInput(input));
+  });
+}
 
 document.querySelectorAll(selectors.orderForm).forEach((formElem) => {
   const form = new OrderForm(formElem);
@@ -50,9 +53,8 @@ document.querySelectorAll('[tariff-cards-container]').forEach((container) => {
   eventListeners.push(popupWithFilters);
 
   const cards = [...container.querySelectorAll(selectors.card)];
-  const showMoreContainer = container.querySelector(selectors.showMoreContainer);
 
-  const showMore = new ShowMore(showMoreContainer, cards, container);
+  const showMore = new ShowMore(container.querySelector(selectors.showMoreContainer), cards, container);
   showMore.initShowMore(window.innerWidth);
   resizeHandlers.push(showMore.resizeHandler);
 
@@ -127,29 +129,51 @@ document.querySelectorAll('[tariff-cards-container]').forEach((container) => {
   });
 });
 
-eventListeners.push(new CharFilter(document.querySelector('.search-form')));
+const searchForm = document.querySelector(selectors.searchForm);
+if (searchForm) {
+  const charFilter = new CharFilter(searchForm);
+  eventListeners.push(charFilter);
 
-const popupWithCities = new Popup(document.querySelector(selectors.popupCities));
+  const searchAddress = new SearchAddress(searchForm, charFilter.lockAlphabet, charFilter.unlockAlphabet);
 
-eventListeners.push(popupWithCities);
+  eventListeners.push(
+    new TextInput(
+      searchForm.querySelector(selectors.textInput),
+      searchAddress.resetTextInputHandler,
+      searchAddress.inputHandler,
+      searchAddress.focusHandler
+    )
+  );
+}
 
-window.openCitiesPopup = popupWithCities.open;
+const citiesPopupElem = document.querySelector(selectors.popupCities);
+if (citiesPopupElem) {
+  const popupWithCities = new Popup(citiesPopupElem);
+  if (popupWithCities) {
+    eventListeners.push(popupWithCities);
 
-const searchCitiesElem = document.querySelector(selectors.popupCities);
-const searchCities = new SearchCities(searchCitiesElem);
+    window.openCitiesPopup = popupWithCities.open;
+    const searchCities = new SearchCities(citiesPopupElem);
 
-eventListeners.push(
-  new TextInput(
-    searchCitiesElem.querySelector(selectors.textInput),
-    searchCities.resetTextInputHandler,
-    searchCities.inputHandler,
-    searchCities.focusHandler
-  )
-);
+    eventListeners.push(
+      new TextInput(
+        citiesPopupElem.querySelector(selectors.textInput),
+        searchCities.resetTextInputHandler,
+        searchCities.inputHandler,
+        searchCities.focusHandler
+      )
+    );
+  }
+}
 
-document.addEventListener('DOMContentLoaded', () => {
+const initAll = () => {
   new ResizeListener(window, resizeHandlers).setResizeListeners();
   eventListeners.forEach((listener) => listener.setEventListeners());
-
   resizeHandlers = eventListeners = null;
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}

@@ -22,11 +22,11 @@ export default class PhoneInput extends TextInput {
     const value = input.value.trim();
 
     if (value == '+') return;
-    const templateStart = input.value.startsWith('8') ? `8 (` : '+7 (';
-    const template = `${templateStart}012) 345-67-89`;
+    const templateBeginning = input.value.startsWith('8') ? `8 (` : '+7 (';
+    const template = `${templateBeginning}012) 345-67-89`;
 
     const preventDeletionIndexes = [...template].reduce((p, x, i) => {
-      if (i < templateStart.length || /\D/.test(x)) {
+      if (i < templateBeginning.length || /\D/.test(x)) {
         p.push(i);
       }
       return p;
@@ -37,7 +37,7 @@ export default class PhoneInput extends TextInput {
     const isDeletion = inputType?.startsWith('delete');
 
     if (isDeletion && preventDeletionIndexes.includes(caretPosition)) {
-      if (value.length < templateStart.length) {
+      if (value.length < templateBeginning.length) {
         this._previousValue = '';
       }
       input.value = this._previousValue;
@@ -64,7 +64,7 @@ export default class PhoneInput extends TextInput {
       .replace(/\D/g, '')
       .slice(0, 10);
 
-    if (!digits && input.value.length >= templateStart.length && !isDeletion) {
+    if (!digits && input.value.length >= templateBeginning.length && !isDeletion) {
       input.value = input.value.slice(0, -1);
       return;
     }
@@ -72,7 +72,7 @@ export default class PhoneInput extends TextInput {
     let result = '';
 
     for (let i = 0; i < digits.length; i++) {
-      const index = template.indexOf(i, templateStart.length);
+      const index = template.indexOf(i, templateBeginning.length);
       result += template.slice(result.length, index) + digits[i];
     }
 

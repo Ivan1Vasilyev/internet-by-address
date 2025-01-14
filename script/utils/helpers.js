@@ -8,6 +8,14 @@ export function showElem(elem) {
   elem.classList.remove(classes.hidden);
 }
 
+export function setBodyNoScroll() {
+  document.body.setAttribute('style', 'overflow: hidden;');
+}
+
+export function setBodyScroll() {
+  document.body.removeAttribute('style');
+}
+
 export function getWordEnding(number, one, two, many) {
   number = number % 100;
   if (number > 4 && number < 21) return many;

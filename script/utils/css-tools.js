@@ -47,6 +47,8 @@ export const selectors = {
   reset: '.reset',
   resultItem: '.result-item',
   scrollBlock: '.scroll-block',
+  searchForm: '.search-form',
+  searchResult: '.search-result',
   showFilterContainer: '.show-filter-container',
   showMoreButton: 'button.show-more',
   showMoreContainer: '.show-more-container',

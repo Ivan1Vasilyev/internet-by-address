@@ -1,5 +1,5 @@
 import { classes, selectors } from '../utils/css-tools.js';
-import { isMobile } from '../utils/helpers.js';
+import { isMobile, setBodyNoScroll, setBodyScroll } from '../utils/helpers.js';
 
 export default class Popup {
   _minTop = 500;
@@ -18,9 +18,11 @@ export default class Popup {
     this._enableScrolling();
     this._popup.classList.remove(classes.opened);
     this._popupContainer.style.top = '';
+    setBodyScroll();
   }
 
   open = () => {
+    setBodyNoScroll();
     if (isMobile()) {
       this._disableScrolling();
     } else {

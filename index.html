@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Интернет по адресу</title>
   <link rel="stylesheet" href="./style/index.css">
+  <script defer type="module" src="./script/index.js"></script>
 </head>
 
 <body>
@@ -1611,7 +1612,7 @@
     <section class="container mob-scroll bg-gray-50 br-10 search-form">
       <div class="search-head">
         <h2>Выберите район в Нижнем Новгороде</h2>
-        <label class="text-input bg-gray-100 address">
+        <label class="text-input bg-gray-100 address" data-type="text">
           <input type="text" name="address" />
           <span class="label-text">Введите улицу</span>
           <span class="error"></span>
@@ -1744,173 +1745,174 @@
           </label>
         </div>
       </div>
-      <div class="search-result scroll-block">
+      <div class="search-streets scroll-block">
         <div class="char-section" data-char="а">
           <span class="char">а</span>
           <div class="char-result">
-            <a class="result-item">Академический</a>
-            <a class="result-item">Алексеевский</a>
-            <a class="result-item">Арбат</a>
-            <a class="result-item">Акиньшино</a>
-            <a class="result-item">Алтуфьевский</a>
-            <a class="result-item">Армейский</a>
-            <a class="result-item">Александрово</a>
-            <a class="result-item">Анкудиново</a>
-            <a class="result-item">Аэропорт</a>
+            <a class="result-item" href="#" data-find="академический">Академический</a>
+            <a class="result-item" href="#" data-find="алексеевский">Алексеевский</a>
+            <a class="result-item" href="#" data-find="арбат">Арбат</a>
+            <a class="result-item" href="#" data-find="акиньшино">Акиньшино</a>
+            <a class="result-item" href="#" data-find="алтуфьевский">Алтуфьевский</a>
+            <a class="result-item" href="#" data-find="армейский">Армейский</a>
+            <a class="result-item" href="#" data-find="александрово">Александрово</a>
+            <a class="result-item" href="#" data-find="анкудиново">Анкудиново</a>
+            <a class="result-item" href="#" data-find="аэропорт">Аэропорт</a>
           </div>
         </div>
         <div class="char-section" data-char="б">
           <span class="char">б</span>
           <div class="char-result">
-            <a class="result-item">Баженова</a>
-            <a class="result-item">Базарная</a>
-            <a class="result-item">Базовый</a>
-            <a class="result-item">Байдукова</a>
-            <a class="result-item">Байкальская</a>
-            <a class="result-item">Бакинский</a>
-            <a class="result-item">Бакунина</a>
-            <a class="result-item">Балакирева</a>
-            <a class="result-item">Балаклавский</a>
+            <a class="result-item" href="#" data-find="баженова">Баженова</a>
+            <a class="result-item" href="#" data-find="базарная">Базарная</a>
+            <a class="result-item" href="#" data-find="базовый">Базовый</a>
+            <a class="result-item" href="#" data-find="байдукова">Байдукова</a>
+            <a class="result-item" href="#" data-find="байкальская">Байкальская</a>
+            <a class="result-item" href="#" data-find="бакинский">Бакинский</a>
+            <a class="result-item" href="#" data-find="бакунина">Бакунина</a>
+            <a class="result-item" href="#" data-find="балакирева">Балакирева</a>
+            <a class="result-item" href="#" data-find="балаклавский">Балаклавский</a>
           </div>
         </div>
         <div class="char-section" data-char="в">
           <span class="char">в</span>
           <div class="char-result">
-            <a class="result-item">Вагонник</a>
-            <a class="result-item">Вадская</a>
-            <a class="result-item">Вадский</a>
-            <a class="result-item">Вайгач</a>
-            <a class="result-item">Валдайская</a>
-            <a class="result-item">Вали Котика</a>
-            <a class="result-item">Ванеева</a>
-            <a class="result-item">Варварская</a>
-            <a class="result-item">Васенко</a>
+            <a class="result-item" href="#" data-find="вагонник">Вагонник</a>
+            <a class="result-item" href="#" data-find="вадская">Вадская</a>
+            <a class="result-item" href="#" data-find="вадский">Вадский</a>
+            <a class="result-item" href="#" data-find="вайгач">Вайгач</a>
+            <a class="result-item" href="#" data-find="валдайская">Валдайская</a>
+            <a class="result-item" href="#" data-find="вали котика">Вали Котика</a>
+            <a class="result-item" href="#" data-find="ванеева">Ванеева</a>
+            <a class="result-item" href="#" data-find="варварская">Варварская</a>
+            <a class="result-item" href="#" data-find="васенко">Васенко</a>
           </div>
         </div>
         <div class="char-section" data-char="г">
           <span class="char">г</span>
           <div class="char-result">
-            <a class="result-item">Гагарина</a>
-            <a class="result-item">Гагинская</a>
-            <a class="result-item">Газетная</a>
-            <a class="result-item">Газовская</a>
-            <a class="result-item">Газонная</a>
-            <a class="result-item">Гаражная</a>
-            <a class="result-item">Гаражный</a>
-            <a class="result-item">Гаражный</a>
-            <a class="result-item">Гаршина</a>
+            <a class="result-item" href="#" data-find="гагарина">Гагарина</a>
+            <a class="result-item" href="#" data-find="гагинская">Гагинская</a>
+            <a class="result-item" href="#" data-find="газетная">Газетная</a>
+            <a class="result-item" href="#" data-find="газовская">Газовская</a>
+            <a class="result-item" href="#" data-find="газонная">Газонная</a>
+            <a class="result-item" href="#" data-find="гаражная">Гаражная</a>
+            <a class="result-item" href="#" data-find="гаражный">Гаражный</a>
+            <a class="result-item" href="#" data-find="гаражный">Гаражный</a>
+            <a class="result-item" href="#" data-find="гаршина">Гаршина</a>
           </div>
         </div>
         <div class="char-section" data-char="д">
           <span class="char">д</span>
           <div class="char-result">
-            <a class="result-item">Дальняя</a>
-            <a class="result-item">Даля</a>
-            <a class="result-item">Дарвина</a>
-            <a class="result-item">Даргомыжского</a>
-            <a class="result-item">Дачная</a>
-            <a class="result-item">Дачная 2-я</a>
-            <a class="result-item">Дачный 2-й</a>
-            <a class="result-item">Движенцев</a>
-            <a class="result-item">Двинская</a>
+            <a class="result-item" href="#" data-find="дальняя">Дальняя</a>
+            <a class="result-item" href="#" data-find="даля">Даля</a>
+            <a class="result-item" href="#" data-find="дарвина">Дарвина</a>
+            <a class="result-item" href="#" data-find="даргомыжского">Даргомыжского</a>
+            <a class="result-item" href="#" data-find="дачная">Дачная</a>
+            <a class="result-item" href="#" data-find="дачная 2-я">Дачная 2-я</a>
+            <a class="result-item" href="#" data-find="дачный 2-й">Дачный 2-й</a>
+            <a class="result-item" href="#" data-find="движенцев">Движенцев</a>
+            <a class="result-item" href="#" data-find="двинская">Двинская</a>
           </div>
         </div>
         <div class="char-section" data-char="е">
           <span class="char">е</span>
           <div class="char-result">
-            <a class="result-item">Евгения Никонова</a>
-            <a class="result-item">Елецкая</a>
-            <a class="result-item">Елховская</a>
-            <a class="result-item">Енисейская</a>
-            <a class="result-item">Ереванская</a>
-            <a class="result-item">Ермака</a>
-            <a class="result-item">Ермака</a>
-            <a class="result-item">Ермоловой</a>
-            <a class="result-item">Ефима Рубинчика</a>
+            <a class="result-item" href="#" data-find="евгения никонова">Евгения Никонова</a>
+            <a class="result-item" href="#" data-find="елецкая">Елецкая</a>
+            <a class="result-item" href="#" data-find="елховская">Елховская</a>
+            <a class="result-item" href="#" data-find="енисейская">Енисейская</a>
+            <a class="result-item" href="#" data-find="ереванская">Ереванская</a>
+            <a class="result-item" href="#" data-find="ермака">Ермака</a>
+            <a class="result-item" href="#" data-find="ермака">Ермака</a>
+            <a class="result-item" href="#" data-find="ермоловой">Ермоловой</a>
+            <a class="result-item" href="#" data-find="ефима рубинчика">Ефима Рубинчика</a>
           </div>
         </div>
         <div class="char-section" data-char="ж">
           <span class="char">ж</span>
           <div class="char-result">
-            <a class="result-item">Железнодорожник</a>
-            <a class="result-item">Железнодорожников</a>
-            <a class="result-item">Живописная</a>
-            <a class="result-item">Жиркомбината</a>
-            <a class="result-item">Жуковского</a>
-            <a class="result-item">Журавлиная</a>
-            <a class="result-item">Журова</a>
+            <a class="result-item" href="#" data-find="железнодорожник">Железнодорожник</a>
+            <a class="result-item" href="#" data-find="железнодорожников">Железнодорожников</a>
+            <a class="result-item" href="#" data-find="живописная">Живописная</a>
+            <a class="result-item" href="#" data-find="жиркомбината">Жиркомбината</a>
+            <a class="result-item" href="#" data-find="жуковского">Жуковского</a>
+            <a class="result-item" href="#" data-find="журавлиная">Журавлиная</a>
+            <a class="result-item" href="#" data-find="журова">Журова</a>
           </div>
         </div>
         <div class="char-section" data-char="з">
           <span class="char">з</span>
           <div class="char-result">
-            <a class="result-item">Заболотная</a>
-            <a class="result-item">Заветы Мичурина Сад № 1</a>
-            <a class="result-item">Заветы Мичурина Сад № 2</a>
-            <a class="result-item">Заветы Мичурина Сад № 3</a>
-            <a class="result-item">Заветы Мичурина Сад № 4</a>
-            <a class="result-item">Завкомовская</a>
-            <a class="result-item">Заводская</a>
-            <a class="result-item">Заводской Парк</a>
-            <a class="result-item">Загородная</a>
+            <a class="result-item" href="#" data-find="заболотная">Заболотная</a>
+            <a class="result-item" href="#" data-find="заветы мичурина сад № 1">Заветы Мичурина Сад № 1</a>
+            <a class="result-item" href="#" data-find="заветы мичурина сад № 2">Заветы Мичурина Сад № 2</a>
+            <a class="result-item" href="#" data-find="заветы мичурина сад № 3">Заветы Мичурина Сад № 3</a>
+            <a class="result-item" href="#" data-find="заветы мичурина сад № 4">Заветы Мичурина Сад № 4</a>
+            <a class="result-item" href="#" data-find="завкомовская">Завкомовская</a>
+            <a class="result-item" href="#" data-find="заводская">Заводская</a>
+            <a class="result-item" href="#" data-find="заводской парк">Заводской Парк</a>
+            <a class="result-item" href="#" data-find="загородная">Загородная</a>
           </div>
         </div>
         <div class="char-section" data-char="и">
           <span class="char">и</span>
           <div class="char-result">
-            <a class="result-item">Ивана Романова</a>
-            <a class="result-item">Ивана Чугурина</a>
-            <a class="result-item">Ивановка</a>
-            <a class="result-item">Ивановский</a>
-            <a class="result-item">Игарская</a>
-            <a class="result-item">Ижевская</a>
-            <a class="result-item">Ижорская</a>
-            <a class="result-item">Износкова</a>
-            <a class="result-item">Изобильная</a>
+            <a class="result-item" href="#" data-find="ивана романова">Ивана Романова</a>
+            <a class="result-item" href="#" data-find="ивана чугурина">Ивана Чугурина</a>
+            <a class="result-item" href="#" data-find="ивановка">Ивановка</a>
+            <a class="result-item" href="#" data-find="ивановский">Ивановский</a>
+            <a class="result-item" href="#" data-find="игарская">Игарская</a>
+            <a class="result-item" href="#" data-find="ижевская">Ижевская</a>
+            <a class="result-item" href="#" data-find="ижорская">Ижорская</a>
+            <a class="result-item" href="#" data-find="износкова">Износкова</a>
+            <a class="result-item" href="#" data-find="изобильная">Изобильная</a>
           </div>
         </div>
         <div class="char-section" data-char="к">
           <span class="char">к</span>
           <div class="char-result">
-            <a class="result-item">Кабардинская</a>
-            <a class="result-item">Кадочка</a>
-            <a class="result-item">Кадровая</a>
-            <a class="result-item">Казанская</a>
-            <a class="result-item">Казанская</a>
-            <a class="result-item">Казанский</a>
-            <a class="result-item">Казанское</a>
-            <a class="result-item">Казарменный</a>
-            <a class="result-item">Казачий</a>
+            <a class="result-item" href="#" data-find="кабардинская">Кабардинская</a>
+            <a class="result-item" href="#" data-find="кадочка">Кадочка</a>
+            <a class="result-item" href="#" data-find="кадровая">Кадровая</a>
+            <a class="result-item" href="#" data-find="казанская">Казанская</a>
+            <a class="result-item" href="#" data-find="казанская">Казанская</a>
+            <a class="result-item" href="#" data-find="казанский">Казанский</a>
+            <a class="result-item" href="#" data-find="казанское">Казанское</a>
+            <a class="result-item" href="#" data-find="казарменный">Казарменный</a>
+            <a class="result-item" href="#" data-find="казачий">Казачий</a>
           </div>
         </div>
         <div class="char-section" data-char="л">
           <span class="char">л</span>
           <div class="char-result">
-            <a class="result-item">Лагерная</a>
-            <a class="result-item">Ладыгина</a>
-            <a class="result-item">Ладыжникова</a>
-            <a class="result-item">Лазо</a>
-            <a class="result-item">Лазурная</a>
-            <a class="result-item">Лазурь</a>
-            <a class="result-item">Ларина</a>
-            <a class="result-item">Лбищенская</a>
-            <a class="result-item">Лебедева-Кумача</a>
+            <a class="result-item" href="#" data-find="лагерная">Лагерная</a>
+            <a class="result-item" href="#" data-find="ладыгина">Ладыгина</a>
+            <a class="result-item" href="#" data-find="ладыжникова">Ладыжникова</a>
+            <a class="result-item" href="#" data-find="лазо">Лазо</a>
+            <a class="result-item" href="#" data-find="лазурная">Лазурная</a>
+            <a class="result-item" href="#" data-find="лазурь">Лазурь</a>
+            <a class="result-item" href="#" data-find="ларина">Ларина</a>
+            <a class="result-item" href="#" data-find="лбищенская">Лбищенская</a>
+            <a class="result-item" href="#" data-find="лебедева-кумача">Лебедева-Кумача</a>
           </div>
         </div>
         <div class="char-section" data-char="м">
           <span class="char">м</span>
           <div class="char-result">
-            <a class="result-item">Магаданская</a>
-            <a class="result-item">Магистральная</a>
-            <a class="result-item">Магистратская</a>
-            <a class="result-item">Магнитная</a>
-            <a class="result-item">Магнитогорская</a>
-            <a class="result-item">Майкопская</a>
-            <a class="result-item">Майская</a>
-            <a class="result-item">Маковского</a>
-            <a class="result-item">Макса Гельца</a>
+            <a class="result-item" href="#" data-find="магаданская">Магаданская</a>
+            <a class="result-item" href="#" data-find="магистральная">Магистральная</a>
+            <a class="result-item" href="#" data-find="магистратская">Магистратская</a>
+            <a class="result-item" href="#" data-find="магнитная">Магнитная</a>
+            <a class="result-item" href="#" data-find="магнитогорская">Магнитогорская</a>
+            <a class="result-item" href="#" data-find="майкопская">Майкопская</a>
+            <a class="result-item" href="#" data-find="майская">Майская</a>
+            <a class="result-item" href="#" data-find="маковского">Маковского</a>
+            <a class="result-item" href="#" data-find="макса гельца">Макса Гельца</a>
           </div>
         </div>
+        <div class="search-result scroll-block"></div>
       </div>
     </section>
     <!-- order-form -->
@@ -2616,8 +2618,6 @@
       </form>
     </div>
   </div>
-
-  <script type="module" src="./script/index.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-import { attributes, selectors, classes } from '../utils/css-tools.js';
+import { attributes, selectors } from '../utils/css-tools.js';
 import { hideElem, showElem, getWordEnding } from '../utils/helpers.js';
 
 export default class CardRangeInput {
@@ -17,7 +17,10 @@ export default class CardRangeInput {
   }
 
   inputHandler = () => {
-    const { value } = this._input;
+    const { min, max, value } = this._input;
+    const percentage = ((value - min) * 100) / (max - min);
+
+    this._input.style.backgroundSize = percentage + '% 100%';
     const option = this._options[value];
     const [currentPrice, oldPrice] = this._getPrices(option);
     this._priceOld.textContent = oldPrice;
@@ -44,10 +47,18 @@ export default class CardRangeInput {
     } else {
       hideElem(this._promoInfo);
     }
-    this._speedElem.textContent = this._speeds[value].textContent;
-    this._speeds[value].classList.add(classes.active);
+    this._speedElem.textContent = option.speed;
+    this._setSpeeds(value);
+  };
 
-    this._setRangeBackground();
+  _setSpeeds = (value) => {
+    this._speeds.forEach((speed, index) => {
+      if (value == index) {
+        speed.classList.add('active');
+      } else {
+        speed.classList.remove('active');
+      }
+    });
   };
 
   setEventListeners = () => {

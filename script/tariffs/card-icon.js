@@ -11,7 +11,13 @@ export default class CardIcon {
   };
 
   _clickHandler = (e) => {
-    this._iconContainer.querySelectorAll(selectors.iconOpened).forEach((icon) => icon.classList.remove(classes.opened));
-    e.target.closest(selectors.icon)?.classList.add(classes.opened);
+    const currentIcon = e.target.closest(selectors.icon);
+    [...this._iconContainer.querySelectorAll(selectors.iconOpened)].forEach((i) => {
+      if (i !== currentIcon) {
+        i.classList.remove(classes.opened);
+      }
+    });
+
+    currentIcon?.classList.toggle(classes.opened);
   };
 }
