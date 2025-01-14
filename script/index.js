@@ -87,8 +87,8 @@ document.querySelectorAll('[tariff-cards-container]').forEach((container) => {
   const filterButtonsInPopup = new FilterButtons(container.querySelector(selectors.popupFilters));
 
   filterButtonsInPopup.exExecuteHandlers.push(filterExecutor.executeFilters);
-
   eventListeners.push(filterButtonsInPopup);
+
   container.querySelectorAll(selectors.filtersPopup).forEach((item) => {
     let filter;
     switch (item.getAttribute(attributes.filterType)) {
