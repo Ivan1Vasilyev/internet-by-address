@@ -1,6 +1,9 @@
 import { selectors, classes, attributes } from '../../utils/css-tools.js';
 
 export default class FilterBase {
+  _inputAreaHandler() {}
+  _setFilterText() {}
+
   constructor(filter, selectedFilters, inputHandler) {
     this._filter = filter;
     this._selectedFilters = selectedFilters;

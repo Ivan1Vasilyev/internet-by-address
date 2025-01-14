@@ -1,11 +1,11 @@
 import { classes } from './css-tools.js';
 
 export function hideElem(elem) {
-  elem.classList.add(classes.hidden);
+  elem?.classList.add(classes.hidden);
 }
 
 export function showElem(elem) {
-  elem.classList.remove(classes.hidden);
+  elem?.classList.remove(classes.hidden);
 }
 
 export function setBodyNoScroll() {

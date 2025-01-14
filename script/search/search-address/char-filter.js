@@ -57,8 +57,10 @@ export default class CharFilter {
       if (this._inputAll.checked) {
         this._showAll();
       } else {
-        if (this._charSections[input.value]) {
-          input.checked ? showElem(this._charSections[input.value]) : hideElem(this._charSections[input.value]);
+        if (input.checked) {
+          showElem(this._charSections[input.value]);
+        } else {
+          hideElem(this._charSections[input.value]);
         }
       }
     }

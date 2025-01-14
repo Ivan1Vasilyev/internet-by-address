@@ -1715,6 +1715,7 @@ input[type='range']::-ms-thumb {
   z-index: 1002;
   bottom: 0;
   left: 0;
+  pointer-events: none;
 }
 
 .cities .cities-container {
@@ -1740,11 +1741,26 @@ input[type='range']::-ms-thumb {
 
 .city-list {
   column-count: 3;
-  margin-bottom: 120px;
+  margin-bottom: 80px;
 }
 
 .filling .city-list {
+  display: none;
+}
+
+.city-list-result {
+  display: none;
   column-count: 1;
+  margin-bottom: 80px;
+}
+
+.filling .city-list-result {
+  display: block;
+}
+
+.city-list-result .region {
+  color: var(--Gray-500);
+  line-height: 1.3;
 }
 
 .city-list-el {
@@ -1777,13 +1793,7 @@ input[type='range']::-ms-thumb {
 }
 
 .letter-list .region {
-  color: var(--Gray-500);
-  line-height: 1.3;
   display: none;
-}
-
-.filling .letter-list .region {
-  display: inline;
 }
 
 .filling .city-hold {
@@ -1794,6 +1804,11 @@ input[type='range']::-ms-thumb {
   display: flex;
   gap: 5px;
   margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.filling .city-list-link a {
+  white-space: nowrap;
 }
 
 @media (max-width: 992px) {
@@ -1825,6 +1840,10 @@ input[type='range']::-ms-thumb {
   .popup.overlay.cities.opened .popup-container {
     top: 0;
     animation: mobPopupUp 0.5s ease-out;
+  }
+
+  .city-list-result {
+    margin-bottom: 0;
   }
 }
 

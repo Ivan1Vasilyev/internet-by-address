@@ -134,12 +134,19 @@ if (searchForm) {
   const charFilter = new CharFilter(searchForm);
   eventListeners.push(charFilter);
 
-  const searchAddress = new SearchAddress(searchForm, charFilter.lockAlphabet, charFilter.unlockAlphabet);
+  const searchAddress = new SearchAddress(
+    searchForm,
+    selectors.searchStreets,
+    selectors.searchResult,
+    selectors.resultItem,
+    charFilter.lockAlphabet,
+    charFilter.unlockAlphabet
+  );
 
   eventListeners.push(
     new TextInput(
       searchForm.querySelector(selectors.textInput),
-      searchAddress.resetTextInputHandler,
+      searchAddress.resetHandler,
       searchAddress.inputHandler,
       searchAddress.focusHandler
     )
@@ -151,14 +158,19 @@ if (citiesPopupElem) {
   const popupWithCities = new Popup(citiesPopupElem);
   if (popupWithCities) {
     eventListeners.push(popupWithCities);
-
     window.openCitiesPopup = popupWithCities.open;
-    const searchCities = new SearchCities(citiesPopupElem);
+
+    const searchCities = new SearchCities(
+      citiesPopupElem,
+      selectors.citiesContainer,
+      selectors.citiesResult,
+      selectors.cityListLink
+    );
 
     eventListeners.push(
       new TextInput(
         citiesPopupElem.querySelector(selectors.textInput),
-        searchCities.resetTextInputHandler,
+        searchCities.resetHandler,
         searchCities.inputHandler,
         searchCities.focusHandler
       )

@@ -1,7 +1,6 @@
 class DrawMatchesService {
-  _spanOpen = '<span class="color-blue">';
-  _spanClose = '</span>';
-  _spanAsRegex = new RegExp(`(${this._spanOpen}|${this._spanClose})`, 'g');
+  _spanTagOpen = '<span class="color-blue">';
+  _spanTagClose = '</span>';
 
   drawMatches = (search, source) => {
     search = search.trim();
@@ -25,9 +24,9 @@ class DrawMatchesService {
     return result;
   };
 
-  _wrapMatch = (match) => `${this._spanOpen}${match}${this._spanClose}`;
+  getFirstMatchIndex = (elem) => elem.innerHTML.indexOf(this._spanTagOpen);
 
-  clearMatches = (str) => str.replace(this._spanAsRegex, '');
+  _wrapMatch = (match) => `${this._spanTagOpen}${match}${this._spanTagClose}`;
 }
 
 const drawMatchesService = new DrawMatchesService();
