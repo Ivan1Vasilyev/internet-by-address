@@ -1,6 +1,6 @@
 export default class FormBase {
   constructor(formElem) {
-    this._form = formElem.querySelector('form');
+    this._form = formElem;
     this._inputs = [...this._form.querySelectorAll('input')];
   }
 

@@ -4,12 +4,12 @@ import { hideElem, showElem } from '../../utils/helpers.js';
 export default class CharFilter {
   isLocked = false;
 
-  constructor(container) {
+  constructor(container, alphabet) {
     this._charSections = [...container.querySelectorAll(selectors.charSection)].reduce(
       (p, i) => ({ ...p, [i.getAttribute(attributes.charSection)]: i }),
       {}
     );
-    this._alphabet = container.querySelector(selectors.alphabet);
+    this._alphabet = alphabet;
     this._allinputs = [...container.querySelectorAll(selectors.alphabetInput)];
     this._inputAll = this._allinputs.find((i) => i.value == 'all');
     this._inputs = this._allinputs.filter((i) => i != this._inputAll);

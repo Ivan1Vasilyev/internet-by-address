@@ -11,11 +11,13 @@ export default class SearchAddress extends SearchBase {
     super.inputHandler(e);
     if (e.target.value) {
       this._lockAlphabet();
+    } else {
+      this.resetHandler();
     }
   };
 
-  resetTextInputHandler = () => {
-    super.resetTextInputHandler();
+  resetHandler = () => {
+    super.resetHandler();
     this._unlockAlphabet();
   };
 }

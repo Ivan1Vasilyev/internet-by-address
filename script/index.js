@@ -130,8 +130,9 @@ document.querySelectorAll('[tariff-cards-container]').forEach((container) => {
 });
 
 const searchForm = document.querySelector(selectors.searchForm);
-if (searchForm) {
-  const charFilter = new CharFilter(searchForm);
+const alphabet = searchForm?.querySelector(selectors.alphabet);
+if (alphabet) {
+  const charFilter = new CharFilter(searchForm, alphabet);
   eventListeners.push(charFilter);
 
   const searchAddress = new SearchAddress(

@@ -155,6 +155,12 @@ h1.main {
   font-size: 50px;
   line-height: 1;
 }
+h1.main-min {
+  color: var(--Gray-600);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
 
 h1.min {
   font-size: 20px;
@@ -181,12 +187,13 @@ h2 {
   .scroll-x {
     overflow-x: scroll;
   }
-  h1.main {
-    font-size: 26px;
-  }
   h1 {
     font-size: 24px;
   }
+  h1.main {
+    font-size: 26px;
+  }
+
   h2,
   .title {
     font-size: 22px;
@@ -485,6 +492,32 @@ header {
   gap: 10px;
 }
 
+/*  ===========================================================     breadcrumbs    ===========================================================  */
+
+.breadcrumbs {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.crumb {
+  color: var(--Gray-600);
+  font-size: 14px;
+}
+
+.crumb:last-child {
+  color: var(--Black);
+}
+
+.crumb a::after {
+  content: '';
+  border-right: 1px solid var(--Gray-600);
+  margin-left: 10px;
+  transform: rotate(35deg);
+  display: inline-block;
+  height: 14px;
+}
+
 /*  ===========================================================     main form    ===========================================================  */
 
 .main-form {
@@ -495,15 +528,43 @@ header {
   align-items: center;
 }
 
+.main-form.streets {
+  padding-top: 82px;
+  padding-bottom: 80px;
+}
+
+.main-form.streets h1,
+.main-form.streets h2 {
+  text-align: center;
+}
+
+.main-form.streets h1 {
+  margin: 10px 0;
+}
+
 .main-form img.top-search {
   width: 66px;
   margin-bottom: 10px;
+}
+
+.streets .simple-button {
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
   .main-form {
     padding-top: 50px;
     padding-bottom: 50px;
+  }
+  .main-form.streets {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .main-form .main-min {
+    margin-bottom: 0;
+  }
+  .main-form.streets .form {
+    margin-top: 15px;
   }
 }
 
@@ -1213,6 +1274,15 @@ input[type='range']::-ms-thumb {
   gap: 25px;
 }
 
+.house .search-streets {
+  display: block;
+  margin-top: 30px;
+}
+
+.house-list {
+  column-count: 6;
+}
+
 .search-result {
   display: none;
   grid-template-columns: repeat(4, 1fr);
@@ -1228,6 +1298,9 @@ input[type='range']::-ms-thumb {
   .search-result {
     grid-template-columns: repeat(3, 1fr);
   }
+  .house-list {
+    column-count: 5;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1240,11 +1313,20 @@ input[type='range']::-ms-thumb {
     margin-top: 25px;
     padding-top: 0;
   }
+  .house .search-streets {
+    margin-top: 15px;
+  }
+  .house-list {
+    column-count: 4;
+  }
 }
 
 @media (max-width: 534px) {
   .search-result {
     grid-template-columns: 1fr;
+  }
+  .house-list {
+    column-count: 3;
   }
 }
 
@@ -1296,6 +1378,13 @@ input[type='range']::-ms-thumb {
 
 .char-result .result-item:hover {
   color: var(--Blue);
+}
+
+.house-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 35px;
 }
 
 /*  ===========================================================     question form    ===========================================================  */
@@ -1526,16 +1615,24 @@ input[type='range']::-ms-thumb {
   font-weight: 600;
 }
 
+.site-info {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
 .footer .signature {
-  text-align: center;
+  transform: translateX(-5px);
   font-size: 12px;
   color: var(--Gray-600);
 }
 
-@media (max-width: 534px) {
+@media (max-width: 768px) {
+  .site-info {
+    grid-template-columns: 0fr 1fr;
+  }
   .footer .signature {
-    text-align: left;
     max-width: 288px;
+    transform: none;
   }
 }
 

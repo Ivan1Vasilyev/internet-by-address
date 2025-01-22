@@ -30,7 +30,7 @@ export default class OrderForm extends FormBase {
     console.log(this._getData());
 
     hideElem(this._defaultElem);
-    showElem(this._successElem);
-    // showElem(this._errorElem);
+    // showElem(this._successElem);
+    showElem(this._errorElem);
   };
 }
