@@ -518,6 +518,24 @@ header {
   height: 14px;
 }
 
+@media (max-width: 992px) {
+  .breadcrumbs {
+    flex-direction: column;
+  }
+
+  .crumb:not(:first-child) {
+    margin-left: 5px;
+  }
+
+  .crumb:last-child {
+    margin-left: 10px;
+  }
+
+  .crumb a::after {
+    content: none;
+  }
+}
+
 /*  ===========================================================     main form    ===========================================================  */
 
 .main-form {
