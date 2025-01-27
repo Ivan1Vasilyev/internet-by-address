@@ -2,7 +2,7 @@ import { attributes, selectors } from '../../utils/css-tools.js';
 import { hideElem, showElem } from '../../utils/helpers.js';
 
 export default class CharFilter {
-  isLocked = false;
+  _isLocked = false;
 
   constructor(container, alphabet) {
     this._charSections = [...container.querySelectorAll(selectors.charSection)].reduce(
@@ -38,9 +38,12 @@ export default class CharFilter {
   };
 
   _inputHandler = (e) => {
-    if (this._isLocked) return;
-
     const input = e.target;
+
+    if (this._isLocked) {
+      input.checked = false;
+      return;
+    }
 
     if (input == this._inputAll) {
       if (this._inputs.some((i) => !i.checked)) {
